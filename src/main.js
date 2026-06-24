@@ -1,6 +1,7 @@
 const INITIAL_VISIBLE_COUNT = 30;
 const LOAD_MORE_COUNT = 10;
 const DATA_BASE_PATH = "./12siemannayo";
+const DISCORD_INVITE_URL = "https://discord.gg/Ajv9563Gf";
 
 const COPY_ICON_SVG = `
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -355,6 +356,7 @@ function renderVideoCard(video) {
   const summaryData = state.summaries[video.videoId];
   const { headline, body, hasReport } = getSimpleSummary(video, summaryData);
   const detailUrl = `./detail.html?videoId=${encodeURIComponent(video.videoId || "")}`;
+  const scriptUrl = `${detailUrl}&view=script`;
   const summaryHtml = headline || body
     ? `
           <div class="summary">
@@ -369,7 +371,12 @@ function renderVideoCard(video) {
             <a class="detail-link" href="${escapeHtml(detailUrl)}">AI리포트</a>
           </div>
     `
-    : "";
+    : `
+          <div class="video-actions">
+            <a class="script-link" href="${escapeHtml(scriptUrl)}">스크립트 보기</a>
+            <a class="notify-link" href="${DISCORD_INVITE_URL}" target="_blank" rel="noreferrer">디스코드 알림 받기</a>
+          </div>
+    `;
   return `
     <article class="video-card" data-video-id="${escapeHtml(video.videoId)}">
       <div class="video-card-top">

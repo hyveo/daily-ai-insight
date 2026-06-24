@@ -32,7 +32,12 @@
 
         <div class="rail-scroll">
           <section class="rail-panel" aria-labelledby="sideChaptersTitle">
-            <h2 id="sideChaptersTitle" class="rail-panel-title">챕터</h2>
+            <h2 id="sideChaptersTitle" class="rail-panel-title">
+              <button class="rail-panel-toggle" type="button" data-rail-toggle aria-expanded="true" aria-controls="sideChapters">
+                챕터
+                <span class="rail-panel-arrow" aria-hidden="true"></span>
+              </button>
+            </h2>
             <ul id="sideChapters" class="side-chapter-list">
               <li>
                 <span class="side-chapter-time">--:--</span>
@@ -41,7 +46,12 @@
             </ul>
           </section>
           <section class="rail-panel script-panel" aria-labelledby="sideScriptTitle">
-            <h2 id="sideScriptTitle" class="rail-panel-title">스크립트</h2>
+            <h2 id="sideScriptTitle" class="rail-panel-title">
+              <button class="rail-panel-toggle" type="button" data-rail-toggle aria-expanded="true" aria-controls="sideScript">
+                스크립트
+                <span class="rail-panel-arrow" aria-hidden="true"></span>
+              </button>
+            </h2>
             <pre id="sideScript" class="script-content">스크립트를 불러오는 중입니다.</pre>
           </section>
         </div>
@@ -101,12 +111,37 @@
         pageTitle: document.querySelector("title")
       };
 
+      function setRailPanelCollapsed(button, collapsed) {
+        const panel = button.closest(".rail-panel");
+        if (!panel) return;
+        panel.classList.toggle("is-collapsed", collapsed);
+        button.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      }
+
+      function setRailPanelsCollapsed(collapsed) {
+        document.querySelectorAll("[data-rail-toggle]").forEach((button) => {
+          setRailPanelCollapsed(button, collapsed);
+        });
+      }
+
+      document.querySelectorAll("[data-rail-toggle]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const panel = button.closest(".rail-panel");
+          const collapsed = panel?.classList.contains("is-collapsed");
+          setRailPanelCollapsed(button, !collapsed);
+        });
+      });
+
       function escapeHtml(value) {
         return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
       }
 
       function getVideoId() {
         return new URLSearchParams(window.location.search).get("videoId") || "7xk88goQtvU";
+      }
+
+      function getDetailView() {
+        return new URLSearchParams(window.location.search).get("view") || "";
       }
 
       function publishedDayKey(publishedAt) {
@@ -218,6 +253,10 @@
         return [];
       }
 
+      function hasAiReport(summary) {
+        return reportSectionsFrom(summary).length > 0;
+      }
+
       function sourceLabel(source) {
         if (!source) return "";
         const parts = [source.timestamp, source.chapter].filter(Boolean);
@@ -310,6 +349,7 @@
           detailElements.channelTitle.textContent = video.channelTitle || "";
           detailElements.publishedDate.textContent = formatKoreanDate(video.publishedAt);
           renderReport(summary);
+          setRailPanelsCollapsed(getDetailView() !== "script" && hasAiReport(summary));
           renderChapters(video.chapters || []);
           detailElements.sideScript.textContent = await loadTranscript(video);
         } catch (error) {

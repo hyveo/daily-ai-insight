@@ -420,6 +420,40 @@ body.modal-open { overflow: hidden; }
 .detail-link:hover {
   background: #ef4444;
 }
+.script-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+.script-link:hover {
+  background: #334155;
+}
+.notify-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+.notify-link:hover {
+  border-color: #5865f2;
+  color: #5865f2;
+}
 .empty-note {
   margin: 0;
   color: #64748b;
