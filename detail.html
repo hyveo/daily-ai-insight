@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Report Detail</title>
+    <link rel="stylesheet" href="./src/styles/base.css" />
+    <link rel="stylesheet" href="./src/styles/detail.css" />
+  </head>
+  <body>
+    <div class="page">
+      <aside class="left-rail" aria-label="자료 정보">
+        <a class="back-link" href="./index.html">← 목록으로</a>
+
+        <a id="videoPreview" class="video-preview" href="https://www.youtube.com/watch?v=7xk88goQtvU" target="_blank" rel="noreferrer">
+          <img
+            id="videoThumb"
+            src="https://i.ytimg.com/vi/7xk88goQtvU/maxresdefault.jpg"
+            alt="[12시에 만나요] 유튜브 영상 썸네일"
+          />
+          <span class="play" aria-hidden="true"></span>
+        </a>
+
+        <div class="channel-card">
+          <div class="avatar">겸손<br />공장</div>
+          <div>
+            <p id="channelTitle" class="channel-title">김어준의 겸손은힘들다 뉴스공장</p>
+            <p id="publishedDate" class="channel-date">2026. 6. 23.</p>
+          </div>
+          <button class="subscribe-button" type="button">구독</button>
+        </div>
+
+        <div class="rail-scroll">
+          <section class="rail-panel" aria-labelledby="sideChaptersTitle">
+            <h2 id="sideChaptersTitle" class="rail-panel-title">챕터</h2>
+            <ul id="sideChapters" class="side-chapter-list">
+              <li>
+                <span class="side-chapter-time">--:--</span>
+                <span class="side-chapter-title">챕터를 불러오는 중입니다.</span>
+              </li>
+            </ul>
+          </section>
+          <section class="rail-panel script-panel" aria-labelledby="sideScriptTitle">
+            <h2 id="sideScriptTitle" class="rail-panel-title">스크립트</h2>
+            <pre id="sideScript" class="script-content">스크립트를 불러오는 중입니다.</pre>
+          </section>
+        </div>
+      </aside>
+
+      <main class="main">
+        <article class="article-wrap">
+          <header class="title-block">
+            <h1 id="reportTitle">
+              [12시에 만나요] 오늘 증시 보고 놀란 국민투자자 마음 12시 보고 안정 찾자!ㅣ김경일 아주대학교 심리학과 교수ㅣ2026년 6월 23일 화요일
+            </h1>
+          </header>
+
+          <p class="editor">edited by <a id="reportEditor" href="./index.html">hyveo</a></p>
+
+          <p id="reportLead" class="lead">
+            김경일 교수의 심리학과 투자 심리 분석, 시장 변동성과 심리적 요인에 대한 설명
+          </p>
+
+          <div id="reportDivider" class="divider" aria-hidden="true"><span>⌃</span></div>
+
+          <nav id="reportToc" class="toc" aria-label="목차">
+            <p class="section-label">목차</p>
+            <ol id="reportTocList"></ol>
+          </nav>
+
+          <div id="reportSections">
+            <div class="report-state">
+              <span class="report-state-icon" aria-hidden="true"></span>
+              <p class="report-state-title">아직 AI 리포트가 없습니다.</p>
+              <p class="report-state-copy">이 영상의 요약을 받고 싶다면 디스코드 알림으로 요청해 주세요.</p>
+              <p class="report-channel-name">채널명 : #youtube-12시에-만나요</p>
+              <a class="report-notify-link" href="https://discord.gg/Ajv9563Gf" target="_blank" rel="noreferrer">디스코드 알림 받기</a>
+            </div>
+          </div>
+        </article>
+      </main>
+
+    </div>
+    <script>
+      const DATA_BASE_PATH = "./12siemannayo";
+
+      const detailElements = {
+        videoPreview: document.querySelector("#videoPreview"),
+        videoThumb: document.querySelector("#videoThumb"),
+        channelTitle: document.querySelector("#channelTitle"),
+        publishedDate: document.querySelector("#publishedDate"),
+        sideChapters: document.querySelector("#sideChapters"),
+        sideScript: document.querySelector("#sideScript"),
+        reportTitle: document.querySelector("#reportTitle"),
+        reportEditor: document.querySelector("#reportEditor"),
+        reportLead: document.querySelector("#reportLead"),
+        reportDivider: document.querySelector("#reportDivider"),
+        reportToc: document.querySelector("#reportToc"),
+        reportTocList: document.querySelector("#reportTocList"),
+        reportSections: document.querySelector("#reportSections"),
+        pageTitle: document.querySelector("title")
+      };
+
+      function escapeHtml(value) {
+        return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+      }
+
+      function getVideoId() {
+        return new URLSearchParams(window.location.search).get("videoId") || "7xk88goQtvU";
+      }
+
+      function publishedDayKey(publishedAt) {
+        const value = String(publishedAt || "");
+        if (!/^\d{4}-\d{2}-\d{2}/.test(value)) return "";
+        return value.slice(0, 10).replaceAll("-", "");
+      }
+
+      function formatKoreanDate(publishedAt) {
+        const value = String(publishedAt || "");
+        if (!/^\d{4}-\d{2}-\d{2}/.test(value)) return "";
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return value.slice(0, 10);
+        return new Intl.DateTimeFormat("ko-KR", {
+          year: "numeric",
+          month: "numeric",
+          day: "numeric"
+        }).format(date);
+      }
+
+      function transcriptFilename(video) {
+        const day = publishedDayKey(video?.publishedAt);
+        return day ? `${day}_${video.videoId}.json` : `${video?.videoId || getVideoId()}.json`;
+      }
+
+      function normalizeTranscriptText(text) {
+        const normalized = String(text || "")
+          .replace(/\r?\n+/g, " ")
+          .replace(/\s{2,}/g, " ")
+          .trim();
+        if (!normalized) return "스크립트가 없습니다.";
+        if (!normalized.includes(">>")) return normalized;
+        return normalized
+          .split(/\s+(?=>>)/)
+          .map((part) => part.trim())
+          .filter(Boolean)
+          .join("\n\n");
+      }
+
+      function renderChapters(chapters) {
+        if (!chapters?.length) {
+          detailElements.sideChapters.innerHTML = '<li class="side-empty">챕터가 없습니다.</li>';
+          return;
+        }
+        detailElements.sideChapters.innerHTML = chapters
+          .map(
+            (chapter) => `
+              <li>
+                <span class="side-chapter-time">${escapeHtml(chapter.timestamp || "")}</span>
+                <span class="side-chapter-title">${escapeHtml(chapter.title || "")}</span>
+              </li>
+            `
+          )
+          .join("");
+      }
+
+      async function loadPlaylistVideos() {
+        const indexResponse = await fetch(`${DATA_BASE_PATH}/playlist/index.json`, { cache: "no-store" });
+        if (!indexResponse.ok) throw new Error("playlist/index.json 로드 실패");
+        const index = await indexResponse.json();
+        const monthPayloads = await Promise.all(
+          (index.months || []).map(async (month) => {
+            const response = await fetch(`${DATA_BASE_PATH}/playlist/${month}.json`, { cache: "no-store" });
+            if (!response.ok) return { videos: [] };
+            return response.json();
+          })
+        );
+        return monthPayloads.flatMap((payload) => payload.videos || []);
+      }
+
+      async function loadTranscript(video) {
+        const filename = transcriptFilename(video);
+        const response = await fetch(`${DATA_BASE_PATH}/transcripts/${encodeURIComponent(filename)}`, { cache: "no-store" });
+        if (!response.ok) throw new Error("transcript 로드 실패");
+        const data = await response.json();
+        return normalizeTranscriptText(data.transcript || "");
+      }
+
+      function summaryFilename(video) {
+        const day = publishedDayKey(video?.publishedAt);
+        return day ? `${day}_${video.videoId}.json` : `${video?.videoId || getVideoId()}.json`;
+      }
+
+      async function fetchReportByName(filename) {
+        const response = await fetch(`${DATA_BASE_PATH}/summaries/${encodeURIComponent(filename)}`, { cache: "no-store" });
+        if (!response.ok) return null;
+        return response.json();
+      }
+
+      async function loadReport(video) {
+        try {
+          return await fetchReportByName(summaryFilename(video)) || await fetchReportByName(`${video?.videoId || getVideoId()}.json`);
+        } catch {
+          return null;
+        }
+      }
+
+      function reportSectionsFrom(summary) {
+        if (Array.isArray(summary?.sections) && summary.sections.length) return summary.sections;
+        if (Array.isArray(summary?.keyBullets) && summary.keyBullets.length) {
+          return [
+            {
+              id: "section-1",
+              title: "핵심 요약",
+              bullets: summary.keyBullets.map((text) => ({ text }))
+            }
+          ];
+        }
+        return [];
+      }
+
+      function sourceLabel(source) {
+        if (!source) return "";
+        const parts = [source.timestamp, source.chapter].filter(Boolean);
+        return parts.join(" · ");
+      }
+
+      function renderReportPending() {
+        detailElements.reportLead.hidden = true;
+        detailElements.reportDivider.hidden = true;
+        detailElements.reportToc.hidden = true;
+        detailElements.reportTocList.innerHTML = "";
+        detailElements.reportSections.innerHTML = `
+          <div class="report-state">
+            <span class="report-state-icon" aria-hidden="true"></span>
+            <p class="report-state-title">아직 AI 리포트가 없습니다.</p>
+            <p class="report-state-copy">이 영상의 요약을 받고 싶다면 디스코드 알림으로 요청해 주세요.</p>
+            <p class="report-channel-name">채널명 : #youtube-12시에-만나요</p>
+            <a class="report-notify-link" href="https://discord.gg/Ajv9563Gf" target="_blank" rel="noreferrer">디스코드 알림 받기</a>
+          </div>
+        `;
+      }
+
+      function renderReport(summary) {
+        const sections = reportSectionsFrom(summary);
+        if (!summary || !sections.length) {
+          renderReportPending();
+          return;
+        }
+
+        detailElements.reportLead.textContent = summary.headline || "";
+        detailElements.reportLead.hidden = !summary.headline;
+        detailElements.reportDivider.hidden = false;
+
+        const toc = Array.isArray(summary.toc) && summary.toc.length
+          ? summary.toc
+          : sections.map((section, index) => ({
+              id: section.id || `section-${index + 1}`,
+              title: section.title || `요약 ${index + 1}`
+            }));
+
+        detailElements.reportToc.hidden = false;
+        detailElements.reportTocList.innerHTML = toc
+          .map((item, index) => `<li><a href="#${escapeHtml(item.id || `section-${index + 1}`)}">${escapeHtml(item.title || "")}</a></li>`)
+          .join("");
+
+        detailElements.reportSections.innerHTML = sections
+          .map((section, index) => {
+            const id = section.id || `section-${index + 1}`;
+            const title = section.title || `요약 ${index + 1}`;
+            const bullets = Array.isArray(section.bullets) ? section.bullets : [];
+            return `
+              <section id="${escapeHtml(id)}" class="summary-section">
+                <h2>${index + 1}. ${escapeHtml(title)}</h2>
+                <ul>
+                  ${bullets
+                    .map((bullet) => {
+                      const text = typeof bullet === "string" ? bullet : bullet?.text;
+                      const label = typeof bullet === "string" ? "" : sourceLabel(bullet?.source);
+                      return `<li>${escapeHtml(text || "")}${label ? `<span class="inline-note">[${escapeHtml(label)}]</span>` : ""}</li>`;
+                    })
+                    .join("")}
+                </ul>
+              </section>
+            `;
+          })
+          .join("");
+      }
+
+      function bindVideoMetadata(video, summary) {
+        const editorName = summary?.editor?.name || summary?.editorName || "hyveo";
+        const editorUrl = summary?.editor?.url || summary?.editorUrl || "./index.html";
+        detailElements.reportTitle.textContent = video.title || "";
+        detailElements.reportEditor.textContent = editorName;
+        detailElements.reportEditor.href = editorUrl;
+      }
+
+      async function hydrateDetail() {
+        const videoId = getVideoId();
+        try {
+          const videos = await loadPlaylistVideos();
+          const video = videos.find((item) => item.videoId === videoId);
+          if (!video) throw new Error("영상을 찾을 수 없습니다.");
+          const summary = await loadReport(video);
+
+          detailElements.pageTitle.textContent = `${video.title} | AI Report Detail`;
+          bindVideoMetadata(video, summary);
+          detailElements.videoPreview.href = video.url || `https://www.youtube.com/watch?v=${videoId}`;
+          detailElements.videoThumb.src = video.thumbnail || `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+          detailElements.videoThumb.alt = video.title || "영상 썸네일";
+          detailElements.channelTitle.textContent = video.channelTitle || "";
+          detailElements.publishedDate.textContent = formatKoreanDate(video.publishedAt);
+          renderReport(summary);
+          renderChapters(video.chapters || []);
+          detailElements.sideScript.textContent = await loadTranscript(video);
+        } catch (error) {
+          detailElements.sideChapters.innerHTML = '<li class="side-empty">챕터를 불러오지 못했습니다.</li>';
+          detailElements.sideScript.textContent = error.message || "스크립트를 불러오지 못했습니다.";
+        }
+      }
+
+      hydrateDetail();
+    </script>
+  </body>
+</html>
