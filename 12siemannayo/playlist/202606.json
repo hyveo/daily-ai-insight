@@ -525,7 +525,8 @@
         }
       ],
       "hasTranscript": "Y",
-      "hasSummary": "N"
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-06-25T21:31:06+09:00"
     },
     {
       "videoId": "ig6nuS2t074",

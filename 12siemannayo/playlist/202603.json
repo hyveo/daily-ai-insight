@@ -76,8 +76,9 @@
           "title": "시청자 사연과 클로징"
         }
       ],
-      "hasTranscript": "N",
-      "hasSummary": "N"
+      "hasTranscript": "Y",
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-06-25T21:08:02+09:00"
     }
   ]
 }
