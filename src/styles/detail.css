@@ -289,7 +289,7 @@ a {
 }
 
 .article-wrap {
-  width: min(760px, calc(100% - 72px));
+  width: min(800px, calc(100% - 72px));
   margin: 0 auto;
   padding: 82px 0 104px;
 }
@@ -354,11 +354,11 @@ a {
 
 .lead {
   margin: 0;
-  max-width: 680px;
+  max-width: 720px;
   color: #222222;
   font-size: 18px;
-  line-height: 1.78;
-  letter-spacing: -0.01em;
+  line-height: 1.82;
+  letter-spacing: 0;
 }
 
 .divider {
@@ -389,7 +389,7 @@ a {
 }
 
 .toc {
-  margin-bottom: 54px;
+  margin-bottom: 64px;
 }
 
 .section-label {
@@ -399,37 +399,187 @@ a {
   font-weight: 800;
 }
 
-.toc ol {
+#reportTocList {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 28px;
+  border-left: 2px solid #f0f0f0;
+  color: #767676;
+  font-size: 15px;
+  line-height: 1.62;
+  list-style: none;
+  counter-reset: toc-item;
+}
+
+#reportTocList > li {
+  counter-increment: toc-item;
+}
+
+#reportTocList > li > a {
+  color: inherit;
+}
+
+#reportTocList > li > a::before {
+  content: counter(toc-item) ". ";
+  color: #111111;
+  font-weight: 800;
+}
+
+.toc-child-list {
+  gap: 8px !important;
+  margin: 8px 0 4px !important;
+  padding-left: 18px !important;
+  border-left: 1px solid #eeeeee !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  list-style: none !important;
+  counter-reset: toc-subitem !important;
+}
+
+.toc-child-list > li {
+  counter-increment: toc-subitem !important;
+}
+
+.toc-child-list > li > a {
+  color: inherit;
+}
+
+.toc-child-list > li > a::before {
+  content: counter(toc-item) "." counter(toc-subitem) " " !important;
+  color: #777777 !important;
+}
+
+.insight-block {
+  margin: 0 0 42px;
+  padding: 0 0 36px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.insight-kicker {
+  margin: 0 0 10px;
+  color: #777777;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.insight-block h2 {
+  margin: 0 0 18px;
+  color: #111111;
+  font-size: 24px;
+  line-height: 1.45;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.insight-block p {
+  margin: 0;
+  color: #222222;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: 0;
+}
+
+.insight-list,
+.strategy-column ul {
   display: grid;
   gap: 14px;
-  margin: 0;
-  padding-left: 34px;
-  border-left: 2px solid #f0f0f0;
-  color: #8a8a8a;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.summary-section {
-  margin: 0 0 42px;
-}
-
-.summary-section h2 {
-  margin: 0 0 16px;
-  color: #111111;
-  font-size: 22px;
-  line-height: 1.45;
-  letter-spacing: -0.02em;
-}
-
-.summary-section ul {
-  display: grid;
-  gap: 13px;
   margin: 0;
   padding-left: 22px;
   color: #222222;
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.85;
+}
+
+.insight-list li::marker,
+.strategy-column li::marker {
+  color: #555555;
+}
+
+.perspective-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+  align-items: start;
+}
+
+.perspective-column {
+  min-width: 0;
+}
+
+.perspective-column h3 {
+  margin: 0 0 14px;
+  color: #111111;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.strategy-frame {
+  padding: 32px 0 40px;
+  border-top: 2px solid #111111;
+}
+
+.strategy-stance {
+  max-width: 720px;
+  margin-bottom: 30px !important;
+  font-weight: 800;
+}
+
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 36px;
+  align-items: start;
+}
+
+.strategy-column {
+  min-width: 0;
+  padding-top: 18px;
+  border-top: 1px solid #eeeeee;
+}
+
+.strategy-column:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+.strategy-column h3 {
+  margin: 0 0 14px;
+  color: #111111;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.chapter-summary-heading {
+  margin: 64px 0 34px;
+  padding-top: 32px;
+  border-top: 2px solid #111111;
+}
+
+.summary-section {
+  margin: 0 0 50px;
+}
+
+.summary-section h2 {
+  margin: 0 0 18px;
+  color: #111111;
+  font-size: 24px;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+.summary-section ul {
+  display: grid;
+  gap: 15px;
+  margin: 0;
+  padding-left: 24px;
+  color: #222222;
+  font-size: 16px;
+  line-height: 1.88;
 }
 
 .summary-section li::marker {
@@ -566,5 +716,15 @@ a {
 
   .lead {
     font-size: 16px;
+  }
+
+  .strategy-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .perspective-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }

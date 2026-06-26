@@ -34,8 +34,9 @@
       "hasTranscript": "Y",
       "hasSummary": "Y",
       "summaryUpdatedAt": "2026-06-26T17:14:23+09:00",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-06-26T12:15:26.003383+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-06-26T12:15:26.003383+09:00",
+      "liveEndedAt": "2026-06-26T17:23:07.359646+09:00"
     },
     {
       "videoId": "jYhlSIFt8tU",

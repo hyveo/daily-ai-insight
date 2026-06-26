@@ -294,6 +294,151 @@
         return parts.join(" · ");
       }
 
+      function listItemsHtml(items) {
+        if (!Array.isArray(items) || !items.length) return "";
+        return items
+          .map((item) => {
+            const text = typeof item === "string" ? item : item?.text;
+            return text ? `<li>${escapeHtml(text)}</li>` : "";
+          })
+          .join("");
+      }
+
+      function hasListContent(items) {
+        return Array.isArray(items) && items.some((item) => typeof item === "string" ? item : item?.text);
+      }
+
+      function hasPerspectiveContent(summary) {
+        return hasListContent(summary?.readerTakeaways) || hasListContent(summary?.watchPoints);
+      }
+
+      function hasStrategyFrameContent(strategyFrame) {
+        return Boolean(
+          strategyFrame &&
+          typeof strategyFrame === "object" &&
+          (
+            strategyFrame.stance ||
+            hasListContent(strategyFrame.scenarioLens) ||
+            hasListContent(strategyFrame.riskChecklist) ||
+            hasListContent(strategyFrame.actionQuestions)
+          )
+        );
+      }
+
+      function reportTocItems(summary, sections) {
+        const chapterToc = Array.isArray(summary.toc) && summary.toc.length
+          ? summary.toc
+          : sections.map((section, index) => ({
+              id: section.id || `section-${index + 1}`,
+              title: section.title || `요약 ${index + 1}`
+            }));
+        return [
+          summary?.insightSummary ? { id: "insight-summary", title: "오늘의 Insight" } : null,
+          hasPerspectiveContent(summary) ? { id: "perspective-summary", title: "투자 관점과 체크포인트" } : null,
+          hasStrategyFrameContent(summary?.strategyFrame) ? { id: "strategy-frame", title: "전략 판단 체크프레임" } : null,
+          { id: "chapter-summary", title: "챕터별 요약", children: chapterToc }
+        ].filter(Boolean);
+      }
+
+      function renderTocItems(items) {
+        return items
+          .map((item) => {
+            const children = Array.isArray(item.children) && item.children.length
+              ? `<ol class="toc-child-list">${renderTocItems(item.children)}</ol>`
+              : "";
+            return `<li><a href="#${escapeHtml(item.id || "")}">${escapeHtml(item.title || "")}</a>${children}</li>`;
+          })
+          .join("");
+      }
+
+      function renderInsightSummary(summary) {
+        if (!summary?.insightSummary) return "";
+        return `
+          <section id="insight-summary" class="insight-block insight-summary" aria-labelledby="insightSummaryTitle">
+            <p class="insight-kicker">핵심 해석</p>
+            <h2 id="insightSummaryTitle">오늘의 Insight</h2>
+            <p>${escapeHtml(summary.insightSummary)}</p>
+          </section>
+        `;
+      }
+
+      function renderPerspectiveBlock(readerTakeaways, watchPoints) {
+        const takeawaysHtml = listItemsHtml(readerTakeaways);
+        const watchPointsHtml = listItemsHtml(watchPoints);
+        if (!takeawaysHtml && !watchPointsHtml) return "";
+        return `
+          <section id="perspective-summary" class="insight-block perspective-block" aria-labelledby="perspectiveTitle">
+            <p class="insight-kicker">관점 정리</p>
+            <h2 id="perspectiveTitle">투자자가 가져갈 관점과 체크포인트</h2>
+            <div class="perspective-grid">
+              ${takeawaysHtml ? `
+                <div class="perspective-column">
+                  <h3>가져갈 관점</h3>
+                  <ul class="insight-list">${takeawaysHtml}</ul>
+                </div>
+              ` : ""}
+              ${watchPointsHtml ? `
+                <div class="perspective-column">
+                  <h3>앞으로 볼 것</h3>
+                  <ul class="insight-list">${watchPointsHtml}</ul>
+                </div>
+              ` : ""}
+            </div>
+          </section>
+        `;
+      }
+
+      function renderStrategyFrame(strategyFrame) {
+        if (!hasStrategyFrameContent(strategyFrame)) return "";
+        const scenarioLens = listItemsHtml(strategyFrame.scenarioLens);
+        const riskChecklist = listItemsHtml(strategyFrame.riskChecklist);
+        const actionQuestions = listItemsHtml(strategyFrame.actionQuestions);
+        return `
+          <section id="strategy-frame" class="insight-block strategy-frame" aria-labelledby="strategyFrameTitle">
+            <p class="insight-kicker">전략 프레임</p>
+            <h2 id="strategyFrameTitle">전략 판단 체크프레임</h2>
+            ${strategyFrame.stance ? `<p class="strategy-stance">${escapeHtml(strategyFrame.stance)}</p>` : ""}
+            <div class="strategy-grid">
+              ${scenarioLens ? `
+                <div class="strategy-column">
+                  <h3>가능한 경로</h3>
+                  <ul>${scenarioLens}</ul>
+                </div>
+              ` : ""}
+              ${riskChecklist ? `
+                <div class="strategy-column">
+                  <h3>주의할 리스크</h3>
+                  <ul>${riskChecklist}</ul>
+                </div>
+              ` : ""}
+              ${actionQuestions ? `
+                <div class="strategy-column">
+                  <h3>내 포트폴리오 질문</h3>
+                  <ul>${actionQuestions}</ul>
+                </div>
+              ` : ""}
+            </div>
+          </section>
+        `;
+      }
+
+      function renderInsightBlocks(summary) {
+        return [
+          renderInsightSummary(summary),
+          renderPerspectiveBlock(summary?.readerTakeaways, summary?.watchPoints),
+          renderStrategyFrame(summary?.strategyFrame)
+        ].filter(Boolean).join("");
+      }
+
+      function renderChapterSummaryHeader() {
+        return `
+          <section id="chapter-summary" class="insight-block chapter-summary-heading" aria-labelledby="chapterSummaryTitle">
+            <p class="insight-kicker">방송</p>
+            <h2 id="chapterSummaryTitle">챕터별 요약</h2>
+          </section>
+        `;
+      }
+
       function renderReportPending() {
         detailElements.reportLead.hidden = true;
         detailElements.reportDivider.hidden = true;
@@ -321,19 +466,13 @@
         detailElements.reportLead.hidden = !summary.headline;
         detailElements.reportDivider.hidden = false;
 
-        const toc = Array.isArray(summary.toc) && summary.toc.length
-          ? summary.toc
-          : sections.map((section, index) => ({
-              id: section.id || `section-${index + 1}`,
-              title: section.title || `요약 ${index + 1}`
-            }));
+        const toc = reportTocItems(summary, sections);
 
         detailElements.reportToc.hidden = false;
-        detailElements.reportTocList.innerHTML = toc
-          .map((item, index) => `<li><a href="#${escapeHtml(item.id || `section-${index + 1}`)}">${escapeHtml(item.title || "")}</a></li>`)
-          .join("");
+        detailElements.reportTocList.innerHTML = renderTocItems(toc);
 
-        detailElements.reportSections.innerHTML = sections
+        const insightBlocks = renderInsightBlocks(summary);
+        const sectionBlocks = sections
           .map((section, index) => {
             const id = section.id || `section-${index + 1}`;
             const title = section.title || `요약 ${index + 1}`;
@@ -354,6 +493,7 @@
             `;
           })
           .join("");
+        detailElements.reportSections.innerHTML = `${insightBlocks}${renderChapterSummaryHeader()}${sectionBlocks}`;
       }
 
       function bindVideoMetadata(video, summary) {
