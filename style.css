@@ -2524,23 +2524,26 @@ button {
     display: none;
   }
 
-  .channel-page {
-    overflow: hidden;
+  body.channel-page {
+    height: auto;
+    min-height: 100svh;
+    overflow-y: auto;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
   }
 
-  .channel-page .site-shell {
-    height: calc(100svh - 64px);
-    min-height: 0;
-    overflow: hidden;
+  body.channel-page .site-shell {
+    height: auto;
+    min-height: calc(100svh - 64px);
+    overflow: visible;
   }
 
-  .channel-page main[data-tabs] {
+  body.channel-page main[data-tabs] {
     display: flex;
     flex: 1 1 auto;
     height: auto;
     min-height: 0;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .channel-tabs {
@@ -2704,11 +2707,10 @@ button {
   }
 
   .episode-section {
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 8px 22px 104px;
+    flex: 0 0 auto;
+    min-height: auto;
+    overflow: visible;
+    padding: 8px 22px calc(148px + env(safe-area-inset-bottom));
   }
 
   .search-box,
@@ -3054,10 +3056,14 @@ button {
   }
 
   .report-section h2 {
-    align-items: center;
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 12px;
     font-family: inherit;
     font-size: 17px;
     font-weight: 800;
+    line-height: 1.45;
   }
 
   .report-section h2 span {
@@ -3065,12 +3071,16 @@ button {
     align-items: center;
     justify-content: center;
     width: 26px;
+    min-width: 26px;
     height: 26px;
+    flex: 0 0 26px;
+    margin-top: 1px;
     border-radius: 50%;
     background: var(--accent);
     color: #fff;
     font-family: inherit;
     font-size: 13px;
+    line-height: 1;
   }
 
   .report-section ul {
