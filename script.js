@@ -248,15 +248,27 @@
     var url = video && video.thumbnail;
     if (!hasValue(url)) return '';
     var safeUrl = String(url).replace(/["\\\n\r]/g, '');
-    var fallbackUrl = safeUrl.replace(/maxresdefault_live\.jpg$/, 'maxresdefault.jpg');
-    var urls = fallbackUrl !== safeUrl
-      ? 'url("' + safeUrl + '"), url("' + fallbackUrl + '")'
-      : 'url("' + safeUrl + '")';
+    var urls = getThumbnailFallbackUrls(safeUrl).map(function(value){
+      return 'url("' + value + '")';
+    }).join(', ');
     if (mode === 'plain') return urls;
     var overlay = mode === 'hero'
       ? 'linear-gradient(150deg, rgba(58,34,48,0.12), rgba(21,17,12,0.18))'
       : 'linear-gradient(150deg, rgba(58,34,48,0.72), rgba(21,17,12,0.7))';
     return overlay + ', ' + urls;
+  }
+
+  function getThumbnailFallbackUrls(url){
+    var urls = [url];
+    var match = String(url).match(/^(https:\/\/i\.ytimg\.com\/vi\/[^/]+\/)([^/?#]+)(.*)$/);
+    if (match){
+      ['maxresdefault_live.jpg', 'maxresdefault.jpg', 'sddefault.jpg', 'hqdefault.jpg', 'mqdefault.jpg'].forEach(function(name){
+        urls.push(match[1] + name + (match[3] || ''));
+      });
+    }
+    return urls.filter(function(value, index, arr){
+      return value && arr.indexOf(value) === index;
+    });
   }
 
   function summaryText(summary, video){
