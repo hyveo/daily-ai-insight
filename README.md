@@ -20,17 +20,17 @@
 
 ## 배포 정보
 
-- 버전: `deploy-24`
-- 마지막 배포일: `2026-07-08 11:45:30 KST`
+- 버전: `deploy-25`
+- 마지막 배포일: `2026-07-08 14:32:34 KST`
 - 서비스 URL: https://hyveo.github.io/youtube_daily_archive_pages
-- 소스 커밋: `69de854`
-- Actions run: https://github.com/heaun/youtube_daily_archive/actions/runs/28913712073
+- 소스 커밋: `2b77694`
+- Actions run: https://github.com/heaun/youtube_daily_archive/actions/runs/28919979277
 
 ## 현재 공개 데이터
 
 - 채널 수: 1
-- 공개 영상 메타데이터 수: 58
-- 공개 AI 리포트 수: 24
+- 공개 영상 메타데이터 수: 59
+- 공개 AI 리포트 수: 25
 
 ## 동작 방식
 
@@ -157,17 +157,17 @@ Insight reports are published as a static site via GitHub Pages. No login. No pa
 
 ## Deployment
 
-- Version: `deploy-24`
-- Last deployed: `2026-07-08 11:45:30 KST`
+- Version: `deploy-25`
+- Last deployed: `2026-07-08 14:32:34 KST`
 - Site: https://hyveo.github.io/youtube_daily_archive_pages
-- Source commit: `69de854`
-- Actions run: https://github.com/heaun/youtube_daily_archive/actions/runs/28913712073
+- Source commit: `2b77694`
+- Actions run: https://github.com/heaun/youtube_daily_archive/actions/runs/28919979277
 
 ## Current Public Data
 
 - Channels: 1
-- Public video metadata records: 58
-- Public AI reports: 24
+- Public video metadata records: 59
+- Public AI reports: 25
 
 ## How It Works
 

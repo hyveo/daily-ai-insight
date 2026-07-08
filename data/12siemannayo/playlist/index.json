@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T05:17:34.401822+00:00",
+  "generatedAt": "2026-07-08T02:55:18.021084+00:00",
   "playlistId": "PLpDZdhM6kelSHHNdphTwAWuxxwbI4kGyX",
   "playlistTitle": "12시에 만나요",
   "months": [
@@ -17,6 +17,9 @@
     "existingCount": 57,
     "addedCount": 1,
     "skippedCount": 49,
-    "totalCount": 58
+    "totalCount": 58,
+    "liveUpsertedVideoId": "fMpE0lHLuE4",
+    "liveStatus": "live",
+    "liveCheckedAt": "2026-07-08T11:55:17.954092+09:00"
   }
 }
