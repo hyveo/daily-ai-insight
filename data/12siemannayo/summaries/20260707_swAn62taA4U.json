@@ -91,7 +91,38 @@
       "반도체가 쉬어갈 때 대체로 강해지는 업종이 실제 실적과 수출 데이터로도 뒷받침되는지 확인하고 있는가"
     ]
   },
-  "visualHighlights": [],
+  "visualHighlights": [
+    {
+      "id": "market-board-selloff",
+      "timestamp": "05:58",
+      "timeSec": 358,
+      "title": "주식장 정리 브리핑 화면",
+      "caption": "삼성전자·SK하이닉스 급락, 코스피 약세, 외국인 매도 압력이 함께 정리되는 장중 시장 화면",
+      "whyImportant": "오늘 리포트의 핵심은 호실적 자체보다 수급과 쏠림 구조가 가격을 먼저 흔들었다는 점이므로, 시장판을 통해 하락의 폭과 주도 종목을 직접 확인할 필요가 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=swAn62taA4U&t=358s",
+      "imagePath": "captures/20260707_swAn62taA4U/01.jpg"
+    },
+    {
+      "id": "leverage-selling-structure",
+      "timestamp": "22:48",
+      "timeSec": 1368,
+      "title": "레버리지 매도 구조 설명 화면",
+      "caption": "반도체 쏠림, 레버리지 ETF, 지수 리밸런싱이 매도를 증폭시키는 구조가 설명되는 장면",
+      "whyImportant": "가격 하락을 실적 훼손으로만 보면 핵심을 놓칠 수 있다. 방송이 말한 '수급 충격이 구조적으로 커지는 방식'을 이해하는 기준 장면이다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=swAn62taA4U&t=1368s",
+      "imagePath": "captures/20260707_swAn62taA4U/02.jpg"
+    },
+    {
+      "id": "samsung-earnings-context",
+      "timestamp": "45:22",
+      "timeSec": 2722,
+      "title": "반도체 실적 추정 테이블",
+      "caption": "반도체 수출, 메모리 가격, 삼성전자·SK하이닉스 영업이익 추정치가 함께 제시되는 표 화면",
+      "whyImportant": "방송이 강조한 결론은 주가 급락일의 공포와 기업 실적의 실제 무게를 분리해서 보자는 것이므로, 이 표가 실적 지속성 논쟁을 숫자로 확인하게 해준다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=swAn62taA4U&t=2722s",
+      "imagePath": "captures/20260707_swAn62taA4U/03.jpg"
+    }
+  ],
   "toc": [
     {
       "id": "market-briefing",
