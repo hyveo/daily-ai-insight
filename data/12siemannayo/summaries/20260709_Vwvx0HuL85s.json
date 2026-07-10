@@ -93,6 +93,16 @@
   },
   "visualHighlights": [
     {
+      "id": "kospi-market-briefing-board",
+      "timestamp": "10:20",
+      "timeSec": 620,
+      "title": "코스피·코스닥 장중 시장 화면",
+      "caption": "코스피가 2% 안팎까지 밀리고 코스닥이 음전한 흐름, 환율 압력까지 함께 짚는 주식장 정리 장면",
+      "whyImportant": "이날 리포트의 출발점인 장중 변동성, 외부 속보 충격, 한국 시장 심리 약화를 한 화면에서 확인할 수 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=Vwvx0HuL85s&t=620s",
+      "imagePath": "captures/20260709_Vwvx0HuL85s/01.jpg"
+    },
+    {
       "id": "sk-hynix-adr-demand-board",
       "timestamp": "40:30",
       "timeSec": 2430,
