@@ -319,6 +319,7 @@
       dataPath: '12siemannayo',
       category: '시사·경제',
       avatarLabel: '겸손',
+      heroImage: 'data/12siemannayo/channel-thumbnail.png',
       playlistUrl: intro && intro.playlistUrl ? intro.playlistUrl : 'https://www.youtube.com/playlist?list=PLpDZdhM6kelSHHNdphTwAWuxxwbI4kGyX',
       youtubeUrl: 'https://www.youtube.com/@gyeomsonisnothing',
       headline: intro && intro.headline ? intro.headline : '',
