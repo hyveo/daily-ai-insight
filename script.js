@@ -12,6 +12,9 @@
   var heroTimer = null;
   var tocScrollHandler = null;
   var tocScrollRoot = null;
+  var searchEventTimer = null;
+  var lastSearchEventKey = '';
+  var TRAFFIC_SESSION_KEY = 'yda:v1:trafficParams';
 
   function hasValue(value){
     if (value === null || value === undefined) return false;
@@ -53,6 +56,211 @@
 
   function getSearchParam(name){
     return new URLSearchParams(window.location.search).get(name);
+  }
+
+  function getPageType(page){
+    var name = page || getPageName();
+    if (name === 'index.html') return 'home';
+    if (name === 'channel.html') return 'channel_list';
+    if (name === 'channel-detail.html') return 'channel_detail';
+    if (name === 'detail.html' || name === 'episodes.html') return 'report_detail';
+    if (name === 'my.html') return 'my';
+    if (name === 'info.html') return 'info';
+    return 'other';
+  }
+
+  function trimAnalyticsText(value, limit){
+    var text = String(value == null ? '' : value).replace(/\s+/g, ' ').trim();
+    if (!text) return '';
+    return text.length > (limit || 100) ? text.slice(0, (limit || 100) - 1) + '…' : text;
+  }
+
+  function cleanAnalyticsParams(params){
+    var cleaned = {};
+    Object.keys(params || {}).forEach(function(key){
+      var value = params[key];
+      if (value === null || value === undefined || value === '') return;
+      if (typeof value === 'string') cleaned[key] = trimAnalyticsText(value, key.indexOf('url') >= 0 || key.indexOf('location') >= 0 ? 500 : 100);
+      else if (typeof value === 'boolean' || typeof value === 'number') cleaned[key] = value;
+      else cleaned[key] = trimAnalyticsText(JSON.stringify(value), 100);
+    });
+    return cleaned;
+  }
+
+  function analyticsBaseParams(extra){
+    var params = {
+      page_name: getPageName(),
+      page_type: getPageType(),
+      page_path: window.location.pathname + window.location.search,
+      page_location: window.location.href,
+      page_title: document.title,
+      video_id: getVideoId() || '',
+      channel_id: getChannelId() || ''
+    };
+    var trafficParams = getSessionTrafficParams();
+    Object.keys(trafficParams).forEach(function(key){ params[key] = trafficParams[key]; });
+    Object.keys(extra || {}).forEach(function(key){ params[key] = extra[key]; });
+    return cleanAnalyticsParams(params);
+  }
+
+  function trackGaEvent(name, params){
+    if (typeof window.gtag !== 'function') return false;
+    window.gtag('event', name, analyticsBaseParams(params));
+    return true;
+  }
+
+  function getTrafficParams(){
+    var params = new URLSearchParams(window.location.search);
+    var referrer = document.referrer || '';
+    var referrerHost = getReferrerHost(referrer);
+    var utmSource = params.get('utm_source') || '';
+    var utmMedium = params.get('utm_medium') || '';
+    return cleanAnalyticsParams({
+      landing_page: window.location.pathname + window.location.search,
+      referrer: referrer,
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_content: params.get('utm_content') || '',
+      utm_term: params.get('utm_term') || '',
+      entry_landing_page: window.location.pathname + window.location.search,
+      entry_referrer: referrer,
+      entry_referrer_host: referrerHost,
+      entry_source: utmSource || referrerHost || 'direct',
+      entry_medium: utmMedium || (referrerHost ? 'referral' : 'direct'),
+      entry_campaign: params.get('utm_campaign') || ''
+    });
+  }
+
+  function getSessionTrafficParams(){
+    try {
+      var stored = sessionStorage.getItem(TRAFFIC_SESSION_KEY);
+      if (stored) return JSON.parse(stored);
+      var traffic = getTrafficParams();
+      sessionStorage.setItem(TRAFFIC_SESSION_KEY, JSON.stringify(traffic));
+      return traffic;
+    } catch (err) {
+      return getTrafficParams();
+    }
+  }
+
+  function getReferrerHost(referrer){
+    if (!referrer) return '';
+    try {
+      return new URL(referrer).hostname.replace(/^www\./, '');
+    } catch (err) {
+      return '';
+    }
+  }
+
+  function trackSessionEntry(){
+    try {
+      if (sessionStorage.getItem('yda:v1:sessionEntryTracked')) return;
+      if (trackGaEvent('session_entry', getSessionTrafficParams())){
+        sessionStorage.setItem('yda:v1:sessionEntryTracked', '1');
+      }
+    } catch (err) {
+      trackGaEvent('session_entry', getSessionTrafficParams());
+    }
+  }
+
+  function trackPageViewEvent(page){
+    trackGaEvent('view_page', { page_name: page || getPageName(), page_type: getPageType(page) });
+  }
+
+  function getElementLabel(el){
+    if (!el) return '';
+    return trimAnalyticsText(el.getAttribute('aria-label') || el.getAttribute('title') || el.textContent || '', 80);
+  }
+
+  function getElementSection(el){
+    var section = el && el.closest('section, article, nav, header, footer, aside');
+    if (!section) return '';
+    if (section.id) return section.id;
+    if (section.getAttribute('aria-label')) return section.getAttribute('aria-label');
+    return (section.className || '').toString().split(/\s+/).filter(Boolean).slice(0, 2).join('.');
+  }
+
+  function getUrlParamFromHref(href, name){
+    if (!href) return '';
+    try {
+      return new URL(href, window.location.href).searchParams.get(name) || '';
+    } catch (err) {
+      return '';
+    }
+  }
+
+  function isOutboundHref(href){
+    if (!href) return false;
+    if (/^mailto:/i.test(href)) return true;
+    try {
+      var url = new URL(href, window.location.href);
+      return url.origin !== window.location.origin;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function getClickType(el, href){
+    if (!el) return 'unknown';
+    if (el.closest('.toc-box')) return 'toc_link';
+    if (el.matches('[data-hero-toggle]')) return 'hero_toggle';
+    if (el.matches('[data-mobile-search]')) return 'mobile_search';
+    if (el.matches('[data-category-filter]')) return 'home_category_filter';
+    if (el.matches('[data-ranking-period], [data-ranking-sort], [data-ranking-category]')) return 'ranking_filter';
+    if (el.matches('[data-channel-page-filter]')) return 'channel_filter';
+    if (el.matches('[data-episode-sort]')) return 'episode_sort';
+    if (el.matches('[data-subscribe]')) return 'subscribe';
+    if (el.matches('[data-bookmark]')) return 'bookmark';
+    if (el.matches('[data-like]')) return 'like';
+    if (el.matches('[data-share]')) return 'share';
+    if (el.matches('[data-tab]')) return 'tab';
+    if (el.matches('[data-more]')) return 'load_more';
+    if (el.matches('[data-rate-btn]')) return 'rating_open';
+    if (el.matches('[data-star]')) return 'rating_star';
+    if (el.matches('[data-play]')) return 'video_play';
+    if (href && /detail\.html|episodes\.html/.test(href)) return 'report_link';
+    if (href && /channel-detail\.html/.test(href)) return 'channel_detail_link';
+    if (href && /channel\.html/.test(href)) return 'channel_list_link';
+    if (href && isOutboundHref(href)) return 'outbound_link';
+    if (href) return 'navigation_link';
+    return 'button';
+  }
+
+  function trackClickElement(target){
+    var el = target && target.closest('a, button, [data-star]');
+    if (!el) return;
+    var href = el.getAttribute('href') || '';
+    var params = {
+      click_type: getClickType(el, href),
+      click_label: getElementLabel(el),
+      click_section: getElementSection(el),
+      link_url: href,
+      is_outbound: isOutboundHref(href),
+      target_video_id: el.getAttribute('data-bookmark') || el.getAttribute('data-like') || getUrlParamFromHref(href, 'videoId') || '',
+      target_channel_id: el.getAttribute('data-subscribe') || getUrlParamFromHref(href, 'channelId') || ''
+    };
+    trackGaEvent('click_element', params);
+    if (params.is_outbound) {
+      trackGaEvent('outbound_link', params);
+    }
+  }
+
+  function trackSearch(input, matchedCount){
+    if (!input) return;
+    var term = input.value.trim();
+    window.clearTimeout(searchEventTimer);
+    if (term.length < 2) return;
+    searchEventTimer = window.setTimeout(function(){
+      var key = term + ':' + matchedCount;
+      if (key === lastSearchEventKey) return;
+      lastSearchEventKey = key;
+      trackGaEvent('search', {
+        search_term: term,
+        result_count: matchedCount,
+        search_location: input.matches('[data-mobile-title-search]') ? 'mobile_titlebar' : 'episode_list'
+      });
+    }, 700);
   }
 
   function showToast(message){
@@ -505,6 +713,7 @@
       renderRankings(app, bundle)
     ].filter(hasValue).join('');
     initHomeHeroCarousel(app.defaultChannel, heroItems);
+    trackPageViewEvent('index.html');
   }
 
   function renderHomeHero(channel, items){
@@ -654,6 +863,7 @@
     document.title = '채널 · ' + APP_TITLE;
     main.innerHTML = '<section class="channel-directory">' + renderChannelDirectoryTabs(app, selected) +
       '<div class="channel-directory-grid">' + (channels.length ? channels.map(renderChannelDirectoryCard).join('') : renderEmptyChannelState()) + '</div></section>';
+    trackPageViewEvent('channel.html');
   }
 
   function renderChannelDirectoryTabs(app, selected){
@@ -777,6 +987,12 @@
     document.title = (channel.title || '채널') + ' · ' + APP_TITLE;
     main.setAttribute('data-tabs', '');
     main.innerHTML = renderChannelHero(channel, bundle) + renderChannelTabs() + renderEpisodeList(bundle) + renderChannelInfo(channel);
+    trackPageViewEvent('channel-detail.html');
+    trackGaEvent('view_channel', {
+      target_channel_id: channel.id,
+      channel_name: channel.name || channel.title || '',
+      episode_count: bundle.videos.length
+    });
   }
 
   function renderChannelHero(channel, bundle){
@@ -870,6 +1086,14 @@
     restoreBookmark(video.videoId);
     restoreLike(video.videoId);
     initTocSpy();
+    trackPageViewEvent(getPageName());
+    trackGaEvent('view_report', {
+      target_video_id: video.videoId,
+      target_channel_id: bundle.channel.id,
+      report_title: cleanTitle(video.title),
+      has_summary: !!summary,
+      published_at: video.publishedAt || ''
+    });
   }
 
   function initTocSpy(){
@@ -1165,6 +1389,7 @@
     setSiteDate(bundle.videos[0] && bundle.videos[0].publishedAt);
     main.innerHTML = '<section class="profile-head"><div class="profile-avatar">hy</div><div class="profile-name"><strong>hyveo</strong><p><span class="desktop-label">app.hyveo@gmail.com · </span>가입 2025·09</p></div><div class="profile-stats"><span><strong>' + saved.length + '</strong><em><span class="desktop-label">SAVED</span><span class="mobile-label">보관함</span></em></span><span><strong>' + subscribed.length + '</strong><em><span class="desktop-label">CHANNELS</span><span class="mobile-label">구독</span></em></span></div><a class="ghost-pill profile-edit" href="my.html"><span class="desktop-label">프로필 편집</span><span class="mobile-label">편집</span></a></section>' +
       '<section class="my-grid"><div>' + renderSubscribedChannels(subscribed) + renderSavedList(saved, bundle) + '</div>' + renderServiceBox() + '</section>';
+    trackPageViewEvent('my.html');
   }
 
   function renderSubscribedChannels(channels){
@@ -1240,9 +1465,13 @@
       window.location.replace(channelDetailHref(getSearchParam('channelId')));
       return;
     }
+    trackSessionEntry();
     setSiteDate();
     if (['index.html', 'channel.html', 'channel-detail.html', 'detail.html', 'episodes.html', 'my.html', 'info.html'].indexOf(page) < 0) return;
-    if (page === 'info.html') return;
+    if (page === 'info.html') {
+      trackPageViewEvent('info.html');
+      return;
+    }
     loadAppData().then(function(app){
       if (page === 'index.html') renderHome(app);
       if (page === 'channel.html') renderChannelListPage(app);
@@ -1256,8 +1485,10 @@
   }
 
   document.addEventListener('click', function(e){
+    trackClickElement(e.target);
     var mobileSearch = e.target.closest('[data-mobile-search]');
     if (mobileSearch){
+      trackGaEvent('open_search', { search_location: 'mobile_titlebar' });
       var rootForSearch = document.querySelector('[data-tabs]');
       if (rootForSearch){
         var epTab = rootForSearch.querySelector('[data-tab="ep"]');
@@ -1272,12 +1503,23 @@
     var categoryFilter = e.target.closest('[data-category-filter]');
     if (categoryFilter){
       e.preventDefault();
-      applyHomeCategoryFilter(categoryFilter.getAttribute('data-category-filter') || '');
+      var category = categoryFilter.getAttribute('data-category-filter') || '';
+      trackGaEvent('filter_channel_list', {
+        filter_location: 'home_shortcut',
+        category: category || 'all'
+      });
+      applyHomeCategoryFilter(category);
       return;
     }
     var rankingPeriod = e.target.closest('button[data-ranking-period]');
     if (rankingPeriod){
       e.preventDefault();
+      trackGaEvent('filter_ranking', {
+        filter_type: 'period',
+        period: rankingPeriod.getAttribute('data-ranking-period') || 'daily',
+        category: getCurrentRankingCategory() || 'all',
+        sort: getCurrentRankingSort()
+      });
       updateRankingSection({
         category: getCurrentRankingCategory(),
         period: rankingPeriod.getAttribute('data-ranking-period') || 'daily',
@@ -1288,6 +1530,12 @@
     var rankingSort = e.target.closest('button[data-ranking-sort]');
     if (rankingSort){
       e.preventDefault();
+      trackGaEvent('filter_ranking', {
+        filter_type: 'sort',
+        period: getCurrentRankingPeriod(),
+        category: 'all',
+        sort: rankingSort.getAttribute('data-ranking-sort') || 'latest'
+      });
       updateRankingSection({
         category: '',
         period: getCurrentRankingPeriod(),
@@ -1298,6 +1546,12 @@
     var rankingCategory = e.target.closest('button[data-ranking-category]');
     if (rankingCategory){
       e.preventDefault();
+      trackGaEvent('filter_ranking', {
+        filter_type: 'category',
+        period: getCurrentRankingPeriod(),
+        category: rankingCategory.getAttribute('data-ranking-category') || 'all',
+        sort: getCurrentRankingSort()
+      });
       updateRankingSection({
         category: rankingCategory.getAttribute('data-ranking-category') || '',
         period: getCurrentRankingPeriod(),
@@ -1309,6 +1563,10 @@
     if (channelPageFilter){
       e.preventDefault();
       var filter = channelPageFilter.getAttribute('data-channel-page-filter') || '';
+      trackGaEvent('filter_channel_list', {
+        filter_location: 'channel_page',
+        category: filter || 'all'
+      });
       loadAppData().then(function(app){
         if (history.pushState) history.pushState(null, '', 'channel.html' + (filter ? '?category=' + encodeURIComponent(filter) : ''));
         renderChannelListPage(app);
@@ -1317,6 +1575,9 @@
     }
     var sortButton = e.target.closest('[data-episode-sort]');
     if (sortButton){
+      var sortSection = sortButton.closest('[data-eplist]');
+      var nextSortOrder = sortSection && sortSection.getAttribute('data-sort-order') === 'oldest' ? 'latest' : 'oldest';
+      trackGaEvent('sort_episodes', { sort_order: nextSortOrder });
       toggleEpisodeSort(sortButton);
       return;
     }
@@ -1325,6 +1586,10 @@
       var target = document.querySelector(tocLink.getAttribute('href'));
       if (target){
         e.preventDefault();
+        trackGaEvent('select_toc', {
+          toc_target: tocLink.getAttribute('href'),
+          toc_label: getElementLabel(tocLink)
+        });
         document.querySelectorAll('.toc-box a[href^="#"]').forEach(function(link){
           link.classList.toggle('is-active', link.getAttribute('href') === tocLink.getAttribute('href'));
         });
@@ -1340,6 +1605,10 @@
       state.subscribedChannelIds = toggleArrayValue(state.subscribedChannelIds, channelId);
       writeUserState(state);
       var on = state.subscribedChannelIds.indexOf(channelId) >= 0;
+      trackGaEvent('subscribe_channel', {
+        target_channel_id: channelId,
+        action: on ? 'subscribe' : 'unsubscribe'
+      });
       subscribe.querySelector('[data-state="off"]').style.display = on ? 'none' : '';
       subscribe.querySelector('[data-state="on"]').style.display = on ? '' : 'none';
       showToast(on ? '구독에 추가되었습니다.' : '구독이 해제되었습니다.');
@@ -1351,8 +1620,13 @@
       var bmState = readUserState();
       bmState.savedVideoIds = toggleArrayValue(bmState.savedVideoIds, videoId);
       writeUserState(bmState);
+      var saved = bmState.savedVideoIds.indexOf(videoId) >= 0;
+      trackGaEvent('save_report', {
+        target_video_id: videoId,
+        action: saved ? 'save' : 'remove'
+      });
       restoreBookmark(videoId);
-      showToast(bmState.savedVideoIds.indexOf(videoId) >= 0 ? '보관함에 추가되었습니다.' : '보관함에서 삭제되었습니다.');
+      showToast(saved ? '보관함에 추가되었습니다.' : '보관함에서 삭제되었습니다.');
       return;
     }
     var like = e.target.closest('[data-like]');
@@ -1361,6 +1635,10 @@
       var likeState = readUserState();
       likeState.likedVideoIds = toggleArrayValue(likeState.likedVideoIds, likeVideoId);
       writeUserState(likeState);
+      trackGaEvent('like_report', {
+        target_video_id: likeVideoId,
+        action: likeState.likedVideoIds.indexOf(likeVideoId) >= 0 ? 'like' : 'unlike'
+      });
       restoreLike(likeVideoId);
       return;
     }
@@ -1372,11 +1650,24 @@
         url: window.location.href
       };
       if (navigator.share){
-        navigator.share(shareData).catch(function(err){
+        navigator.share(shareData).then(function(){
+          trackGaEvent('share', {
+            method: 'native',
+            content_type: 'report',
+            item_id: getVideoId() || ''
+          });
+        }).catch(function(err){
           if (!err || err.name !== 'AbortError') showToast('공유를 완료하지 못했습니다.');
         });
       } else {
         copyText(shareData.url).then(function(ok){
+          if (ok) {
+            trackGaEvent('share', {
+              method: 'clipboard',
+              content_type: 'report',
+              item_id: getVideoId() || ''
+            });
+          }
           showToast(ok ? '주소가 복사되었습니다.' : '주소를 복사하지 못했습니다.');
         });
       }
@@ -1387,6 +1678,7 @@
       var root = tab.closest('[data-tabs]');
       if (root){
         var name = tab.getAttribute('data-tab');
+        trackGaEvent('select_tab', { tab_name: name });
         root.querySelectorAll('[data-tab]').forEach(function(t){ t.classList.toggle('on', t===tab); });
         root.querySelectorAll('[data-panel]').forEach(function(p){
           var active = p.getAttribute('data-panel') === name;
@@ -1401,6 +1693,10 @@
       var wrap = more.closest('[data-eplist]');
       if (wrap){
         var hidden = [].slice.call(wrap.querySelectorAll('[data-ep-item]')).filter(function(x){ return x.style.display==='none'; });
+        trackGaEvent('load_more_episodes', {
+          reveal_count: Math.min(5, hidden.length),
+          remaining_before_click: hidden.length
+        });
         hidden.slice(0,5).forEach(function(x){ x.style.display=''; });
         var left = hidden.length - Math.min(5, hidden.length);
         if (left<=0){ more.style.display='none'; }
@@ -1410,6 +1706,7 @@
     }
     var rb = e.target.closest('[data-rate-btn]');
     if (rb){
+      trackGaEvent('open_rating', { target_video_id: getVideoId() || '' });
       var panel = document.querySelector(rb.getAttribute('data-rate-target'));
       if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
@@ -1424,6 +1721,10 @@
         state.reportRatingsByVideoId[videoIdForRating] = n;
         writeUserState(state);
       }
+      trackGaEvent('rate_report', {
+        target_video_id: videoIdForRating || '',
+        rating_value: n
+      });
       restoreRating(videoIdForRating);
       showToast('평가가 반영되었습니다.');
       return;
@@ -1433,6 +1734,7 @@
       var v = pl.closest('[data-video]');
       if (v){
         var id = v.getAttribute('data-vid') || '';
+        trackGaEvent('play_video', { target_video_id: id });
         v.innerHTML = '<iframe class="video-iframe" width="100%" height="100%" src="https://www.youtube.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0" title="YouTube" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="display:block;width:100%;height:100%;border:0;"></iframe>';
         v.style.cursor='default';
       }
@@ -1476,6 +1778,7 @@
       section.appendChild(empty);
     }
     empty.hidden = !keyword || matchedCount > 0;
+    trackSearch(input, matchedCount);
   }
 
   function toggleEpisodeSort(button){
