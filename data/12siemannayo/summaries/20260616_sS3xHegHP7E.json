@@ -89,7 +89,8 @@
       "title": "코스피 보합·코스닥 바이오 강세 시장판",
       "caption": "코스피는 보합권에서 쉬고 코스닥은 바이오 중심으로 상승하는 정오 시장 정리 장면",
       "whyImportant": "종전 기대 이후 시장이 지수 전체보다 업종별로 다르게 움직였다는 점을 보여준다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=sS3xHegHP7E&t=510s"
+      "sourceUrl": "https://www.youtube.com/watch?v=sS3xHegHP7E&t=510s",
+      "imagePath": "captures/20260616_sS3xHegHP7E/01.jpg"
     },
     {
       "id": "defense-reconstruction-board",
@@ -98,7 +99,8 @@
       "title": "방산·재건주 강세 설명 화면",
       "caption": "종전 기대에도 방산주와 건설·재건 관련주가 강세를 보이는 이유를 정리하는 장면",
       "whyImportant": "방송 제목의 역설인 종전인데 방산주가 오르는 이유를 실제 시장판과 함께 확인할 수 있다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=sS3xHegHP7E&t=1440s"
+      "sourceUrl": "https://www.youtube.com/watch?v=sS3xHegHP7E&t=1440s",
+      "imagePath": "captures/20260616_sS3xHegHP7E/02.jpg"
     },
     {
       "id": "boston-dynamics-samsung-board",
@@ -107,7 +109,8 @@
       "title": "삼성전자와 보스턴다이내믹스 투자 가능성 화면",
       "caption": "삼성의 현금 활용과 로봇·AI 성장 투자 가능성을 설명하는 장면",
       "whyImportant": "로봇 테마를 단순 뉴스가 아니라 ROE와 기업가치 재평가 프레임으로 연결하는 핵심 자료다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=sS3xHegHP7E&t=2700s"
+      "sourceUrl": "https://www.youtube.com/watch?v=sS3xHegHP7E&t=2700s",
+      "imagePath": "captures/20260616_sS3xHegHP7E/03.jpg"
     }
   ],
   "toc": [

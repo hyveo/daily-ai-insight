@@ -89,7 +89,8 @@
       "title": "FOMC 전 코스피 보합·코스닥 강세 시장판",
       "caption": "코스피는 보합권, 코스닥은 바이오 중심 강세, 환율은 상승 출발한 정오 시장 정리 장면",
       "whyImportant": "이날 장세가 지수 방향보다 업종 순환과 이벤트 대기 심리로 움직였다는 점을 보여준다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=7EXsrLEdVyQ&t=595s"
+      "sourceUrl": "https://www.youtube.com/watch?v=7EXsrLEdVyQ&t=595s",
+      "imagePath": "captures/20260617_7EXsrLEdVyQ/01.jpg"
     },
     {
       "id": "boj-policy-board",
@@ -98,7 +99,8 @@
       "title": "BOJ 금리와 국채매입 축소 설명 화면",
       "caption": "일본 기준금리와 2027년 이후 국채 매입 축소 속도를 해석하는 장면",
       "whyImportant": "엔화와 글로벌 유동성, 엔캐리 리스크가 왜 시장의 핵심 변수인지 시각적으로 확인할 수 있다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=7EXsrLEdVyQ&t=1470s"
+      "sourceUrl": "https://www.youtube.com/watch?v=7EXsrLEdVyQ&t=1470s",
+      "imagePath": "captures/20260617_7EXsrLEdVyQ/02.jpg"
     },
     {
       "id": "nvidia-bond-ai-investment",
@@ -107,7 +109,8 @@
       "title": "엔비디아 회사채와 AI 투자 설명 화면",
       "caption": "대규모 회사채 발행을 AI 하드웨어 투자와 생태계 확장 신호로 해석하는 장면",
       "whyImportant": "AI 버블 논쟁과 한국 반도체 수요 전망을 연결하는 핵심 자료다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=7EXsrLEdVyQ&t=2040s"
+      "sourceUrl": "https://www.youtube.com/watch?v=7EXsrLEdVyQ&t=2040s",
+      "imagePath": "captures/20260617_7EXsrLEdVyQ/03.jpg"
     }
   ],
   "toc": [
