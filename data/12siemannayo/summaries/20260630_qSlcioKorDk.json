@@ -2,10 +2,10 @@
   "videoId": "qSlcioKorDk",
   "sourceUrl": "https://www.youtube.com/watch?v=qSlcioKorDk",
   "title": "[12시에 만나요] 3대 메가 프로젝트 두둥등장! K-반도체 청사진 어떻게 그려질까?ㅣ2026년 6월 30일 화요일",
-  "generatedAt": "2026-06-30T14:11:43+09:00",
-  "summaryUpdatedAt": "2026-06-30T14:11:43+09:00",
-  "summaryStyle": "detailed-report",
-  "reportVersion": "insight-v1",
+  "generatedAt": "2026-07-12T14:38:46+09:00",
+  "summaryUpdatedAt": "2026-07-12T14:38:46+09:00",
+  "summaryStyle": "insight-report",
+  "reportVersion": "insight-v2",
   "editor": {
     "name": "hyveo",
     "url": "./index.html"
@@ -303,5 +303,63 @@
       ]
     }
   ],
-  "publishedAt": "2026-06-30T02:49:06Z"
+  "publishedAt": "2026-06-30T02:49:06Z",
+  "emphasisNotes": [
+    {
+      "text": "AI 코리아와 K-반도체 메가 프로젝트는 정치적 지역 배분이 아니라 한국의 잠재성장률과 산업 지도를 바꾸는 비상한 실행 과제로 봐야 한다는 점이 강조됐다.",
+      "whyItMatters": "방송은 발표 규모보다 전력·용수·인허가·인력 같은 병목을 해결하는 실행력이 장기 산업 경쟁력의 핵심이라고 봤다.",
+      "source": {
+        "chapter": "AI 코리아 청사진과 산업 지도",
+        "timestamp": "03:50"
+      }
+    },
+    {
+      "text": "삼성은 광주 반도체와 충청 HBM, SK는 AI 데이터센터에 방점을 찍는 식으로 그룹별 역할이 다르므로 같은 반도체 투자도 어디에 돈이 들어가는지 구분해야 한다는 메시지가 제시됐다.",
+      "whyItMatters": "정책 수혜를 넓게 묶어 보기보다 실제 투자 위치와 공급망 연결성을 확인해야 과열 테마와 실질 수혜를 구분할 수 있다.",
+      "source": {
+        "chapter": "그룹별 투자 방향",
+        "timestamp": "21:50"
+      }
+    },
+    {
+      "text": "국민연금 리밸런싱과 단일종목 레버리지 ETF는 시장을 무너뜨리는 단일 악재가 아니라 변동성을 키우는 수급 상수로 차분히 해석해야 한다는 점이 반복됐다.",
+      "whyItMatters": "신고가 구간에서는 호재보다 수급 충격을 어떻게 흡수하는지가 다음 시장 안정성을 좌우하기 때문이다.",
+      "source": {
+        "chapter": "수급과 변동성 대응",
+        "timestamp": "37:35"
+      }
+    }
+  ],
+  "visualHighlights": [
+    {
+      "id": "kospi-kosdaq-market-board",
+      "timestamp": "06:55",
+      "timeSec": 415,
+      "title": "코스피 신고가와 코스닥 쉬어가기 시장판",
+      "caption": "코스피가 8,500선 돌파를 시도하고 코스닥은 전날 급등 뒤 쉬어가는 정오 시장 정리 화면",
+      "whyImportant": "K-반도체 정책 기대가 지수에는 강하게 반영됐지만 시장 내부 온도 차와 외국인 매도도 함께 봐야 한다는 브리핑의 출발점이다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=qSlcioKorDk&t=415s",
+      "imagePath": "captures/20260630_qSlcioKorDk/01.jpg"
+    },
+    {
+      "id": "ai-korea-mega-project-map",
+      "timestamp": "17:52",
+      "timeSec": 1072,
+      "title": "AI 코리아 3대 메가 프로젝트 정리 화면",
+      "caption": "반도체, AI 데이터센터, 피지컬 AI·로봇을 중심으로 지역별 산업 거점을 설명하는 장면",
+      "whyImportant": "정책 발표를 단순 테마가 아니라 전력·용수·인허가 병목을 동반한 산업 지도 재편으로 읽어야 하는 이유를 보여준다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=qSlcioKorDk&t=1072s",
+      "imagePath": "captures/20260630_qSlcioKorDk/02.jpg"
+    },
+    {
+      "id": "mlcc-supply-chain-board",
+      "timestamp": "40:00",
+      "timeSec": 2400,
+      "title": "AI 서버용 MLCC와 소부장 확산 화면",
+      "caption": "삼성전기 MLCC 공급 계약과 관련 부품·소재 강세를 정리하는 후반 뉴스 장면",
+      "whyImportant": "반도체 메가 투자의 온기가 완성품 대형주를 넘어 부품·소재 가격과 수주로 확산될 수 있다는 논리를 시각적으로 보강한다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=qSlcioKorDk&t=2400s",
+      "imagePath": "captures/20260630_qSlcioKorDk/03.jpg"
+    }
+  ]
 }

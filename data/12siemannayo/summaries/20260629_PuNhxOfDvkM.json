@@ -2,10 +2,10 @@
   "videoId": "PuNhxOfDvkM",
   "sourceUrl": "https://www.youtube.com/watch?v=PuNhxOfDvkM",
   "title": "[12시에 만나요] 이재명 정부 정책 기대감 확산 속 코스닥의 유쾌한 반등ㅎㅎ 천스닥 탈환 가자아~!!!ㅣ2026년 6월 29일 월요일",
-  "generatedAt": "2026-06-29T14:28:47+09:00",
-  "summaryUpdatedAt": "2026-06-29T19:13:08+09:00",
-  "summaryStyle": "detailed-report",
-  "reportVersion": "insight-v1",
+  "generatedAt": "2026-07-12T14:38:46+09:00",
+  "summaryUpdatedAt": "2026-07-12T14:38:46+09:00",
+  "summaryStyle": "insight-report",
+  "reportVersion": "insight-v2",
   "editor": {
     "name": "hyveo",
     "url": "./index.html"
@@ -58,6 +58,10 @@
   },
   "toc": [
     {
+      "id": "market-briefing",
+      "title": "주식장 정리 브리핑"
+    },
+    {
       "id": "ai-cycle-shift",
       "title": "애플 사례는 주도 기업도 영원하지 않다는 경고다"
     },
@@ -79,6 +83,47 @@
     }
   ],
   "sections": [
+    {
+      "id": "market-briefing",
+      "title": "주식장 정리 브리핑: 코스피 휴식과 코스닥 급반등이 동시에 나타났다",
+      "bullets": [
+        {
+          "text": "정오 시장판에서 코스피는 1%대 약세로 8,200선대에 머물렀지만, 코스닥은 7% 안팎 급등하며 910선 회복을 시도했다.",
+          "source": {
+            "chapter": "정오의 머니 뉴스",
+            "timestamp": "07:20"
+          }
+        },
+        {
+          "text": "코스닥에서는 상승 종목 수가 1,500개를 넘었고 바이오, 2차전지, 성장주로 온기가 확산되며 전날까지 반도체 대형주에 쏠렸던 시장 폭이 넓어졌다.",
+          "source": {
+            "chapter": "정오의 머니 뉴스",
+            "timestamp": "08:00"
+          }
+        },
+        {
+          "text": "방송은 반등을 긍정적으로 보면서도 외국인·개인 동반 매수보다 기관 중심 수급 성격이 강하므로 지속성을 더 확인해야 한다고 구분했다.",
+          "source": {
+            "chapter": "코스닥 수급 해석",
+            "timestamp": "12:00"
+          }
+        },
+        {
+          "text": "코스피가 상대적으로 쉰 이유로는 삼성전자·SK하이닉스 같은 대장주의 휴식, 애플의 중국산 메모리 검토 뉴스, 반도체 차익실현 심리가 함께 언급됐다.",
+          "source": {
+            "chapter": "애플과 반도체 수급",
+            "timestamp": "16:50"
+          }
+        },
+        {
+          "text": "환율·금리 압력은 이날 리포트의 전면 변수라기보다 이번 주 미국 고용, 이란 회담, 수출 지표와 함께 위험선호를 재확인할 변수로 정리됐다.",
+          "source": {
+            "chapter": "주간 일정과 클로징",
+            "timestamp": "68:00"
+          }
+        }
+      ]
+    },
     {
       "id": "ai-cycle-shift",
       "title": "애플 사례는 주도 기업도 영원하지 않다는 경고다",
@@ -250,5 +295,63 @@
       ]
     }
   ],
-  "publishedAt": "2026-06-29T02:48:43Z"
+  "publishedAt": "2026-06-29T02:48:43Z",
+  "emphasisNotes": [
+    {
+      "text": "기존 주도 기업과 산업도 영원하지 않으며, 투자자는 변화에 능동적으로 대응하고 실제로 투자하는 기업을 봐야 한다는 메시지가 강조됐다.",
+      "whyItMatters": "애플의 AI 투자 소극성과 노키아 사례를 통해, 시장 주도권은 과거의 브랜드가 아니라 다음 변화에 대한 실행력으로 이동할 수 있음을 보여준다.",
+      "source": {
+        "chapter": "오프닝: 애플과 AI 투자",
+        "timestamp": "02:10"
+      }
+    },
+    {
+      "text": "반도체 메가 프로젝트는 지역 구호가 아니라 전력·용수·인력·소부장·인허가를 풀어야 성공한다는 점이 꼭 봐야 할 조건으로 제시됐다.",
+      "whyItMatters": "정책 수혜 기대가 실제 실적과 수주로 이어지는지 판단하려면 병목 조건을 확인해야 한다.",
+      "source": {
+        "chapter": "정책 기대와 3대 메가 프로젝트",
+        "timestamp": "35:30"
+      }
+    },
+    {
+      "text": "투자 규모 자체보다 어디에 투자해 더 많은 수익을 낼 수 있는지가 중요하다는 관점이 반복됐다.",
+      "whyItMatters": "대형 발표 후에는 숫자보다 자본 배분의 질과 회수 가능성을 봐야 테마성 과열을 피할 수 있다.",
+      "source": {
+        "chapter": "투자 실행 조건",
+        "timestamp": "35:50"
+      }
+    }
+  ],
+  "visualHighlights": [
+    {
+      "id": "kosdaq-rebound-market-board",
+      "timestamp": "07:45",
+      "timeSec": 465,
+      "title": "코스피 약세와 코스닥 급등 시장판",
+      "caption": "코스피는 쉬어가지만 코스닥이 7% 안팎 강세를 보이고 상승 종목 수가 크게 늘어난 정오 시장 화면",
+      "whyImportant": "이날 리포트의 핵심인 대형주 휴식과 코스닥·성장주 확산을 한 화면에서 확인할 수 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=PuNhxOfDvkM&t=465s",
+      "imagePath": "captures/20260629_PuNhxOfDvkM/01.jpg"
+    },
+    {
+      "id": "apple-operating-margin-graph",
+      "timestamp": "00:55",
+      "timeSec": 55,
+      "title": "애플 영업이익률과 노키아 비교 그래프",
+      "caption": "애플의 높은 영업이익률과 과거 노키아 사례를 비교하며 주도 기업의 변화 가능성을 짚는 오프닝 자료",
+      "whyImportant": "AI 투자 사이클에서 기존 강자가 계속 주도할 수 있는지 묻는 방송의 구조적 문제의식이 압축돼 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=PuNhxOfDvkM&t=55s",
+      "imagePath": "captures/20260629_PuNhxOfDvkM/02.jpg"
+    },
+    {
+      "id": "apple-china-memory-board",
+      "timestamp": "27:41",
+      "timeSec": 1661,
+      "title": "애플의 중국산 메모리 검토 화면",
+      "caption": "애플이 메모리 가격 부담 속에서 중국 창신메모리 칩 검토와 미국 행정부 승인 문제를 설명하는 장면",
+      "whyImportant": "코스피 대형 반도체주가 쉬어간 이유와 AI 투자 사이클의 비용 전가 논리를 이해하는 핵심 자료다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=PuNhxOfDvkM&t=1661s",
+      "imagePath": "captures/20260629_PuNhxOfDvkM/03.jpg"
+    }
+  ]
 }

@@ -2,10 +2,10 @@
   "videoId": "9G2GD4MAeUE",
   "sourceUrl": "https://www.youtube.com/watch?v=9G2GD4MAeUE",
   "title": "[12시에 만나요] 손 떨리는 변동장😨 CPI 경계 속 트럼프는 또 이란 공습?!?! 도와줘요 심신안정제들!ㅣ2026년 6월 10일 수요일",
-  "generatedAt": "2026-06-29T10:18:06+09:00",
-  "summaryUpdatedAt": "2026-06-29T10:18:06+09:00",
-  "summaryStyle": "detailed-report",
-  "reportVersion": "insight-v1",
+  "generatedAt": "2026-07-12T14:38:46+09:00",
+  "summaryUpdatedAt": "2026-07-12T14:38:46+09:00",
+  "summaryStyle": "insight-report",
+  "reportVersion": "insight-v2",
   "editor": {
     "name": "hyveo",
     "url": "./index.html"
@@ -53,6 +53,10 @@
   },
   "toc": [
     {
+      "id": "market-briefing",
+      "title": "주식장 정리 브리핑"
+    },
+    {
       "id": "market-shock",
       "title": "이란 리스크와 외국인 매도가 급락장을 만들었다"
     },
@@ -74,6 +78,47 @@
     }
   ],
   "sections": [
+    {
+      "id": "market-briefing",
+      "title": "주식장 정리 브리핑: 이란 리스크와 CPI 대기가 환율·수급을 압박했다",
+      "bullets": [
+        {
+          "text": "방송 초반 시장판에서 코스피는 3%대 약세로 7,800선 사수에 나섰고, 외국인은 2조원 넘게 매도하며 지수 하락을 압박했다.",
+          "source": {
+            "chapter": "[정오의 머니 뉴스] 권다영 앵커",
+            "timestamp": "07:30"
+          }
+        },
+        {
+          "text": "코스닥도 약세권에 머물렀고, 환율은 안정되는 듯하다가 이란발 충돌 뉴스 이후 1,523원선으로 다시 위를 향하는 흐름으로 소개됐다.",
+          "source": {
+            "chapter": "[정오의 머니 뉴스] 권다영 앵커",
+            "timestamp": "07:35"
+          }
+        },
+        {
+          "text": "하락의 직접 배경은 이란과 미국의 충돌 확대, 유가 강세, 국채금리 상승, 달러 강세였고 이는 아시아 증시 전반의 위험회피로 이어졌다고 정리됐다.",
+          "source": {
+            "chapter": "이란 리스크와 유가·금리",
+            "timestamp": "12:35"
+          }
+        },
+        {
+          "text": "뉴욕 증시는 나스닥이 장중 크게 밀렸다가 낙폭을 줄이는 V자 변동을 보였고, 스페이스X 수급과 AI IPO 기대가 위험자산 내부 자금 이동 변수로 다뤄졌다.",
+          "source": {
+            "chapter": "뉴욕 증시와 스페이스X 수급",
+            "timestamp": "25:30"
+          }
+        },
+        {
+          "text": "방송의 해석은 CPI 발표 전까지 금리·환율·외국인 수급이 작은 뉴스에도 민감하게 움직일 수 있으므로, 원인별 지속 기간을 나눠 대응해야 한다는 것이었다.",
+          "source": {
+            "chapter": "CPI와 대응 프레임",
+            "timestamp": "35:00"
+          }
+        }
+      ]
+    },
     {
       "id": "market-shock",
       "title": "이란 리스크와 외국인 매도가 급락장을 만들었다",
@@ -238,5 +283,63 @@
       ]
     }
   ],
-  "publishedAt": "2026-06-10T04:12:04Z"
+  "publishedAt": "2026-06-10T04:12:04Z",
+  "emphasisNotes": [
+    {
+      "text": "주식 투자에서 손실은 피할 수 없고, 중요한 것은 손실이 났을 때 기다릴지 팔지에 대한 기준을 사전에 갖는 것이라고 강조됐다.",
+      "whyItMatters": "급락장에서 공포를 줄이는 핵심은 방향 예측이 아니라 시나리오와 손절·보유 기준의 명확성이라는 방송의 대응 원칙이다.",
+      "source": {
+        "chapter": "오프닝: 젠슨황과 대응 원칙",
+        "timestamp": "02:00"
+      }
+    },
+    {
+      "text": "중동 리스크에서 가장 중요한 변수는 시간이며, 장기화되면 기대 인플레이션을 올려 물가와 금리 부담을 다른 차원으로 밀어 올릴 수 있다는 점이 제시됐다.",
+      "whyItMatters": "지정학 뉴스는 하루 헤드라인이 아니라 유가·금리·환율을 통해 국내 증시 할인율로 전달되기 때문이다.",
+      "source": {
+        "chapter": "이란 리스크와 유가·금리",
+        "timestamp": "20:00"
+      }
+    },
+    {
+      "text": "공포 콘텐츠에 반응하지 말고 하락 원인의 지속 가능성과 계좌 기준을 나눠 대응해야 한다는 메시지가 후반 광수생각의 핵심이었다.",
+      "whyItMatters": "변동성 장세에서는 그럴듯한 전망보다 확인 가능한 변수와 본인의 리스크 한도가 실제 의사결정을 지켜 준다.",
+      "source": {
+        "chapter": "[광수생각] 반응말고 대응하자!",
+        "timestamp": "61:49"
+      }
+    }
+  ],
+  "visualHighlights": [
+    {
+      "id": "kospi-kosdaq-market-board",
+      "timestamp": "07:30",
+      "timeSec": 450,
+      "title": "코스피 급락과 환율 재상승 시장판",
+      "caption": "코스피가 3%대 약세를 보이고 외국인 매도와 환율 1,523원선이 함께 제시되는 정오 시장 화면",
+      "whyImportant": "이란 리스크와 CPI 경계가 국내 증시에 수급·환율 압력으로 전달된 출발점을 보여준다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=9G2GD4MAeUE&t=450s",
+      "imagePath": "captures/20260610_9G2GD4MAeUE/01.jpg"
+    },
+    {
+      "id": "middle-east-oil-rate-board",
+      "timestamp": "12:35",
+      "timeSec": 755,
+      "title": "중동 리스크와 유가·금리 화면",
+      "caption": "이란·미국 충돌, 유가 강세, 국채금리 상승을 연결해 설명하는 뉴스 자료 장면",
+      "whyImportant": "지정학 리스크가 단순 뉴스가 아니라 물가·금리·환율 경로로 시장 할인율을 높이는 구조를 이해하게 한다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=9G2GD4MAeUE&t=755s",
+      "imagePath": "captures/20260610_9G2GD4MAeUE/02.jpg"
+    },
+    {
+      "id": "nasdaq-spacex-volatility-board",
+      "timestamp": "25:30",
+      "timeSec": 1530,
+      "title": "나스닥 V자 변동과 스페이스X 수급 화면",
+      "caption": "뉴욕 증시 급락 후 낙폭 축소, 스페이스X 수요 쏠림과 AI IPO 기대를 정리하는 장면",
+      "whyImportant": "국내 반도체 차익실현을 기업 펀더멘털 훼손이 아니라 글로벌 위험자산 내부 자금 이동과 구분해 보게 해 준다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=9G2GD4MAeUE&t=1530s",
+      "imagePath": "captures/20260610_9G2GD4MAeUE/03.jpg"
+    }
+  ]
 }

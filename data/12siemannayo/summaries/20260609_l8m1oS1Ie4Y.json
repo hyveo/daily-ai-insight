@@ -2,10 +2,10 @@
   "videoId": "l8m1oS1Ie4Y",
   "sourceUrl": "https://www.youtube.com/watch?v=l8m1oS1Ie4Y",
   "title": "[12시에 만나요] 8천피 회복!👍 어제는 매도, 오늘은 매수 사이드카.. 어질어질한 시장에 멀미약 두둥등장!ㅣ2026년 6월 9일 화요일",
-  "generatedAt": "2026-06-29T10:18:06+09:00",
-  "summaryUpdatedAt": "2026-06-29T10:18:06+09:00",
-  "summaryStyle": "detailed-report",
-  "reportVersion": "insight-v1",
+  "generatedAt": "2026-07-12T14:38:46+09:00",
+  "summaryUpdatedAt": "2026-07-12T14:38:46+09:00",
+  "summaryStyle": "insight-report",
+  "reportVersion": "insight-v2",
   "editor": {
     "name": "hyveo",
     "url": "./index.html"
@@ -53,6 +53,10 @@
   },
   "toc": [
     {
+      "id": "market-briefing",
+      "title": "주식장 정리 브리핑"
+    },
+    {
       "id": "rebound-volatility",
       "title": "강한 반등은 안정이 아니라 변동성의 크기를 보여준다"
     },
@@ -74,6 +78,47 @@
     }
   ],
   "sections": [
+    {
+      "id": "market-briefing",
+      "title": "주식장 정리 브리핑: 매수 사이드카는 회복보다 변동성의 크기를 보여줬다",
+      "bullets": [
+        {
+          "text": "코스피와 코스닥은 전날 급락 뒤 강하게 반등했고, 양 시장에 매수 사이드카가 발동될 정도로 장중 탄력이 컸다.",
+          "source": {
+            "chapter": "[정오의 머니 뉴스] 권다영 앵커",
+            "timestamp": "07:20"
+          }
+        },
+        {
+          "text": "코스닥은 6% 안팎 급등하며 960선 부근까지 회복했고, 알테오젠과 반도체 장비주, 광통신 관련주가 강세를 보인 것으로 정리됐다.",
+          "source": {
+            "chapter": "[정오의 머니 뉴스] 권다영 앵커",
+            "timestamp": "07:30"
+          }
+        },
+        {
+          "text": "외국인 매도는 여전히 남아 있었지만 강도는 약해졌고, 환율은 당국의 비상회의와 구두개입 메시지 속에 1,518원 부근까지 안정되는 흐름이 언급됐다.",
+          "source": {
+            "chapter": "[시동생각] 환율 하락과 국민연금 환헤지의 관계?",
+            "timestamp": "55:30"
+          }
+        },
+        {
+          "text": "방송은 금리 우려, 반도체 차익실현, 스페이스X 수급, 환율 부담을 각각 기간이 제한될 수 있는 압력으로 나눠 보며 반등의 배경을 설명했다.",
+          "source": {
+            "chapter": "시장 압력 요인 분해",
+            "timestamp": "00:00"
+          }
+        },
+        {
+          "text": "따라서 이날 반등은 안정장 진입 신호라기보다 급락과 급반등이 모두 가능한 높은 변동성 장세의 다른 얼굴로 해석됐다.",
+          "source": {
+            "chapter": "변동성 대응 원칙",
+            "timestamp": "07:20"
+          }
+        }
+      ]
+    },
     {
       "id": "rebound-volatility",
       "title": "강한 반등은 안정이 아니라 변동성의 크기를 보여준다",
@@ -238,5 +283,63 @@
       ]
     }
   ],
-  "publishedAt": "2026-06-09T04:11:42Z"
+  "publishedAt": "2026-06-09T04:11:42Z",
+  "emphasisNotes": [
+    {
+      "text": "현재 상황만 근거로 미래도 똑같이 폭락할 것이라고 단정하면 안 되며, 미래는 지금과 다를 수 있다는 점을 염두에 두라는 메시지가 강하게 제시됐다.",
+      "whyItMatters": "급락·급반등이 반복되는 장에서는 자극적 전망보다 전망의 근거와 조건 변화를 검증해야 한다.",
+      "source": {
+        "chapter": "변동성 대응 원칙",
+        "timestamp": "00:00"
+      }
+    },
+    {
+      "text": "투자에서 가장 중요한 것은 의사결정 기준이며, 공포 콘텐츠나 그럴듯한 장기 차트가 그 기준을 대신해서는 안 된다고 강조됐다.",
+      "whyItMatters": "사이드카가 반복되는 시장에서는 반응 매매가 손실을 키우기 쉬워, 확인 가능한 변수와 사전 계획이 필요하다.",
+      "source": {
+        "chapter": "변동성 대응 원칙",
+        "timestamp": "01:07:01"
+      }
+    },
+    {
+      "text": "손실은 반드시 날 수 있으므로, 처음 살 때부터 시나리오와 손절 라인, 기다릴 이유를 정해야 한다는 원칙이 반복됐다.",
+      "whyItMatters": "반등장에서 추격하기 전에 포지션이 틀렸을 때 어떻게 대응할지 정하는 것이 리스크 관리의 핵심이다.",
+      "source": {
+        "chapter": "클로징 대응 원칙",
+        "timestamp": "01:07:01"
+      }
+    }
+  ],
+  "visualHighlights": [
+    {
+      "id": "buy-sidecar-market-board",
+      "timestamp": "07:20",
+      "timeSec": 440,
+      "title": "매수 사이드카와 코스닥 강세 시장판",
+      "caption": "코스피와 코스닥이 급반등하고 매수 사이드카가 발동된 정오 시장 정리 화면",
+      "whyImportant": "반등 자체보다 변동성이 얼마나 커졌는지를 보여 주는 핵심 장면이다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=l8m1oS1Ie4Y&t=440s",
+      "imagePath": "captures/20260609_l8m1oS1Ie4Y/01.jpg"
+    },
+    {
+      "id": "fx-verbal-intervention-board",
+      "timestamp": "55:30",
+      "timeSec": 3330,
+      "title": "환율 구두개입과 시장 안정 토론 장면",
+      "caption": "당국 비상회의와 구두개입 이후 원달러 환율 안정 가능성을 스튜디오에서 해석하는 시동생각 장면",
+      "whyImportant": "이날 반등이 이어지려면 환율 안정과 외국인 수급 완화가 함께 필요하다는 방송의 대응 프레임을 확인할 수 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=l8m1oS1Ie4Y&t=3330s",
+      "imagePath": "captures/20260609_l8m1oS1Ie4Y/02.jpg"
+    },
+    {
+      "id": "semiconductor-memory-rebound-board",
+      "timestamp": "08:20",
+      "timeSec": 500,
+      "title": "마이크론과 반도체 장비주 반등 화면",
+      "caption": "마이크론 상승과 국내 반도체 장비주 강세를 통해 업황 기대가 남아 있음을 설명하는 뉴스 장면",
+      "whyImportant": "반도체 차익실현과 업황 훼손을 구분해야 한다는 방송의 판단 프레임을 시각적으로 보강한다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=l8m1oS1Ie4Y&t=500s",
+      "imagePath": "captures/20260609_l8m1oS1Ie4Y/03.jpg"
+    }
+  ]
 }
