@@ -1415,7 +1415,7 @@
     var html = '';
     var sectionGroups = splitReportSections(summary);
     if (hasValue(summary.headline) || hasValue(summary.insightSummary)){
-      html += '<section class="ai-lead"><div class="ai-lead-title"><span>✦</span> AI 분석 리포트</div>' +
+      html += '<section class="ai-lead"><div class="ai-lead-kicker">AI 분석 리포트</div><div class="ai-lead-title"><span>✦</span> 오늘의 헤드라인</div>' +
         (hasValue(summary.headline) ? '<p>' + escapeHtml(summary.headline) + '</p>' : '') +
         '</section>';
     }
