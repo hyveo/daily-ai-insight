@@ -116,6 +116,28 @@
       "whyImportant": "중동 충격이 인플레이션 압력을 키우는 가운데 연준의 정책 언어와 물가 지표가 금리 동결 기대를 좌우할 핵심 일정임을 확인할 수 있다.",
       "sourceUrl": "https://www.youtube.com/watch?v=SIbDvPoNTy8&t=1205s",
       "imagePath": "captures/20260714_SIbDvPoNTy8/03.jpg"
+    },
+    {
+      "id": "market-structure-trust-frame",
+      "timestamp": "31:30",
+      "timeSec": 1890,
+      "title": "패닉 매도와 저가 매수의 엇갈린 수급",
+      "caption": "외국인·기관 매수와 개인 매도가 갈리며 지수 하락 속에서도 수급 판단이 단순하지 않다는 점을 설명하는 장면",
+      "selectionBasis": "앞뒤 문맥상 중요. 방송이 당일 하락을 단순 악재가 아니라 투자 주체별 수급과 신뢰 훼손 문제로 해석한 핵심 구간이라 선정.",
+      "whyImportant": "같은 급락장에서도 누가 팔고 누가 사는지를 구분해야 시장 신뢰와 회복 가능성을 판단할 수 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=SIbDvPoNTy8&t=1890s",
+      "imagePath": "captures/20260714_SIbDvPoNTy8/04.jpg"
+    },
+    {
+      "id": "leverage-inverse-trading-frame",
+      "timestamp": "45:29",
+      "timeSec": 2729,
+      "title": "레버리지·인버스 거래 구조 설명 장면",
+      "caption": "단일 종목 레버리지와 인버스 거래가 하락장에서 매도 압력을 증폭할 수 있다는 구조를 설명하는 장면",
+      "selectionBasis": "앞뒤 문맥상 중요. 방송이 국내 낙폭 확대의 원인을 대외 악재뿐 아니라 레버리지·인버스 거래 구조에서 찾은 핵심 구간이라 선정.",
+      "whyImportant": "당일 급락을 단순한 뉴스 반응이 아니라 매도가 매도를 부르는 시장 구조 문제로 이해하게 해준다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=SIbDvPoNTy8&t=2729s",
+      "imagePath": "captures/20260714_SIbDvPoNTy8/05.jpg"
     }
   ],
   "toc": [
@@ -124,8 +146,12 @@
       "title": "주식장 정리 브리핑"
     },
     {
-      "id": "money-news",
-      "title": "정오의 Money 뉴스"
+      "id": "money-news-market",
+      "title": "정오의 Money 뉴스: 지수·환율 정보"
+    },
+    {
+      "id": "money-news-headlines",
+      "title": "정오의 Money 뉴스: 헤드라인 보드"
     },
     {
       "id": "geopolitical-rate-risk",
@@ -191,8 +217,8 @@
       ]
     },
     {
-      "id": "money-news",
-      "title": "정오의 Money 뉴스: 시장 보드와 헤드라인이 보여준 당일 불확실성",
+      "id": "money-news-market",
+      "title": "정오의 Money 뉴스: 지수·환율 보드",
       "bullets": [
         {
           "text": "정오의 Money 뉴스는 코스피가 2.6%대 하락으로 6,600선까지 밀리고 코스닥이 4.7%대까지 낙폭을 키운 흐름을 먼저 제시했다.",
@@ -209,17 +235,51 @@
           }
         },
         {
-          "text": "뉴스 헤드라인은 중동 리스크와 뉴욕 증시 약세, 케빈 워시 연준 의장의 첫 의회 발언, 미국 6월 CPI 발표, 미국 중부사령부의 이란 추가 공습, 반도체 증권사 리포트의 긍정적 이익 전망으로 구성됐다.",
+          "text": "이 시장 보드는 당일 리포트의 핵심 논리인 '대외 충격이 유가·금리로 번지고 국내 지수 변동성으로 옮겨왔다'는 해석의 출발점 역할을 했다.",
           "source": {
-            "chapter": "정오의 Money 뉴스 헤드라인",
-            "timestamp": "09:15"
+            "chapter": "정오의 Money 뉴스 시장 보드",
+            "timestamp": "08:35"
+          }
+        }
+      ]
+    },
+    {
+      "id": "money-news-headlines",
+      "title": "정오의 Money 뉴스: 헤드라인 보드 꼭지별 요약",
+      "bullets": [
+        {
+          "text": "중동 리스크와 반도체 급락, 뉴욕 증시 일제 하락은 해외 지정학 리스크가 국내 기술주와 위험자산 심리에 먼저 압박으로 번졌다는 배경을 제시했다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 헤드라인 보드",
+            "timestamp": "10:10"
           }
         },
         {
-          "text": "이 구간은 당일 리포트의 핵심 논리인 '대외 충격이 유가·금리로 번지고, 국내에서는 레버리지와 지수 추종 수급이 낙폭을 키웠다'는 해석의 배경 데이터를 제공했다.",
+          "text": "워시 연준의장의 첫 의회 발언과 물가지수 발표는 단기 주가보다 금리 경로와 인플레이션 확인이 다시 시장의 중심 변수로 돌아왔다는 점을 보여줬다.",
           "source": {
-            "chapter": "정오의 Money 뉴스",
-            "timestamp": "10:20"
+            "chapter": "정오의 Money 뉴스 헤드라인 보드",
+            "timestamp": "10:10"
+          }
+        },
+        {
+          "text": "'벼랑 끝 반등' 시도 뒤 증시가 다시 하락 전환했다는 꼭지는 단순 낙폭보다 회복 시도의 힘이 약했고 장중 신뢰가 흔들렸다는 신호로 읽힌다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 헤드라인 보드",
+            "timestamp": "10:10"
+          }
+        },
+        {
+          "text": "'사이클은 바뀐 게 없다, 바닥이 미끄러울 뿐'이라는 표현은 장기 방향을 단정적으로 부정하기보다, 단기 바닥 지지력과 수급 구조를 더 조심해서 봐야 한다는 해석으로 연결됐다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 헤드라인 보드",
+            "timestamp": "10:10"
+          }
+        },
+        {
+          "text": "따라서 헤드라인 보드는 중동·미국 증시·연준·물가·시장 사이클을 각각 흩어진 뉴스가 아니라 당일 하락 압력을 설명하는 하나의 불확실성 묶음으로 정리해 줬다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 헤드라인 보드",
+            "timestamp": "10:10"
           }
         }
       ]

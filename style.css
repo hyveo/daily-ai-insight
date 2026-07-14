@@ -1800,6 +1800,7 @@ button {
   font-size: 15px;
   font-weight: 900;
   line-height: 1.35;
+  min-height: 48px;
 }
 
 .visual-card p,
@@ -1809,6 +1810,10 @@ button {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 13px;
   line-height: 1.55;
+}
+
+.visual-card > strong + p {
+  min-height: 82px;
 }
 
 .visual-card small {
@@ -3550,11 +3555,16 @@ button {
 
   .visual-card strong {
     font-size: 14px;
+    min-height: 42px;
   }
 
   .visual-card p,
   .visual-card small {
     font-size: 12.5px;
+  }
+
+  .visual-card > strong + p {
+    min-height: 72px;
   }
 
   .visual-section-note {
