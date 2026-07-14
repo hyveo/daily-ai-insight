@@ -1324,7 +1324,24 @@
       item && item.caption,
       item && item.whyImportant
     ].join(' ');
-    return /money|머니|정오|지수|환율|헤드라인|뉴스/i.test(text);
+    return /money|머니|정오/i.test(text);
+  }
+
+  function moneyNewsHighlightRank(item){
+    var text = [
+      item && item.id,
+      item && item.title,
+      item && item.caption
+    ].join(' ');
+    if (/headline|헤드라인/i.test(text)) return 2;
+    if (/market|index|지수|환율|코스피|코스닥/i.test(text)) return 1;
+    return 3;
+  }
+
+  function displayMoneyNewsTitle(item){
+    var title = String(item && item.title || '화면').trim();
+    title = title.replace(/^정오의\s*(Money|머니)\s*뉴스\s*[:：]?\s*/i, '').trim();
+    return title || '화면';
   }
 
   function getGeneralVisualHighlights(summary){
@@ -1332,14 +1349,18 @@
   }
 
   function renderMoneyNewsImages(summary, channel){
-    var items = getVisualHighlights(summary).filter(isMoneyNewsHighlight).slice(0, 3);
+    var items = getVisualHighlights(summary)
+      .filter(isMoneyNewsHighlight)
+      .sort(function(a, b){ return moneyNewsHighlightRank(a) - moneyNewsHighlightRank(b); })
+      .slice(0, 2);
     if (!hasValue(items)) return '';
     return '<div class="money-visual-grid">' + items.map(function(item){
       var imageSrc = visualHighlightImageSrc(channel, item);
+      var title = displayMoneyNewsTitle(item);
       if (!imageSrc) return '';
       return '<a class="money-visual-card" href="' + escapeAttr(item.sourceUrl || summary.sourceUrl || '#') + '" target="_blank" rel="noreferrer">' +
-        '<span class="visual-media"><img src="' + escapeAttr(imageSrc) + '" alt="' + escapeAttr(item.title || '정오의 Money 뉴스 화면') + '" loading="lazy"><span class="visual-time">' + escapeHtml(item.timestamp || '') + '</span></span>' +
-        '<strong>' + escapeHtml(item.title || '정오의 Money 뉴스 화면') + '</strong>' +
+        '<span class="visual-media"><img src="' + escapeAttr(imageSrc) + '" alt="' + escapeAttr(title) + '" loading="lazy"><span class="visual-time">' + escapeHtml(item.timestamp || '') + '</span></span>' +
+        '<strong>' + escapeHtml(title) + '</strong>' +
         (hasValue(item.caption) ? '<p>' + escapeHtml(item.caption) + '</p>' : '') +
         '</a>';
     }).filter(hasValue).join('') + '</div>';
