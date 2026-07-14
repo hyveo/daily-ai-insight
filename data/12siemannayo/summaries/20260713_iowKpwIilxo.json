@@ -5,7 +5,7 @@
   "generatedAt": "2026-07-13T14:11:37+09:00",
   "summaryUpdatedAt": "2026-07-13T14:11:37+09:00",
   "summaryStyle": "insight-report",
-  "reportVersion": "insight-v2",
+  "reportVersion": "insight-v3.0.0",
   "editor": {
     "name": "hyveo",
     "url": "./index.html"
@@ -93,33 +93,58 @@
   },
   "visualHighlights": [
     {
+      "id": "noon-money-news-market-board",
+      "timestamp": "06:20",
+      "timeSec": 380,
+      "title": "정오의 Money 뉴스 지수·환율 보드",
+      "caption": "12시 기준 코스피 7,035, 코스닥 818.3, 원/달러 환율 1,508을 한 화면에 보여주는 장면",
+      "selectionBasis": "화면 직접 근거. 지수와 환율 수치가 실제 보드에 표시돼 리포트의 시장 출발점을 검증할 수 있어서 선정.",
+      "whyImportant": "사용자가 요청한 코스피·코스닥·환율 정보를 가장 직접적으로 확인할 수 있고, 오늘 장이 지수와 환율 부담을 동시에 안고 출발했다는 리포트 전제를 만든다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=iowKpwIilxo&t=380s",
+      "imagePath": "captures/20260713_iowKpwIilxo/04.jpg"
+    },
+    {
+      "id": "noon-money-news-headline-board",
+      "timestamp": "08:20",
+      "timeSec": 500,
+      "title": "정오의 Money 뉴스 헤드라인 보드",
+      "caption": "미국·이란 전쟁 재개 우려, SK하이닉스 ADR, 레버리지 ETF, 글로벌 증시 일정을 한 번에 정리한 화면",
+      "selectionBasis": "구조화된 헤드라인 근거. 이후 리포트가 다루는 주요 의제가 한 화면에 묶여 있어 선정.",
+      "whyImportant": "사용자가 요청한 뉴스 헤드라인 정보를 별도 섹션과 바로 연결해 보여주며, 이후 리포트가 다루는 핵심 의제의 지도 역할을 한다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=iowKpwIilxo&t=500s",
+      "imagePath": "captures/20260713_iowKpwIilxo/05.jpg"
+    },
+    {
+      "id": "sk-hynix-us-investment-board",
+      "timestamp": "18:45",
+      "timeSec": 1125,
+      "title": "최태원 회장 인터뷰 주요 발언 화면",
+      "caption": "미국 첨단 패키징 투자, AI 데이터센터 합작투자, 글로벌 고객 대응을 정리한 SK하이닉스 관련 장면",
+      "selectionBasis": "중요 키워드와 앞뒤 문맥을 함께 반영. 장기계약 조건을 '중요한 부분'으로 짚고, ADR 흥행과 국내 본주 괴리를 설명하는 핵심 맥락이라 선정.",
+      "whyImportant": "ADR 첫날 흥행을 단기 주가 이벤트가 아니라 AI 데이터센터 수요와 미국 투자 전략이라는 구조적 맥락에서 봐야 한다는 리포트 판단을 뒷받침한다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=iowKpwIilxo&t=1125s",
+      "imagePath": "captures/20260713_iowKpwIilxo/02.jpg"
+    },
+    {
       "id": "leverage-etf-policy-board",
       "timestamp": "26:10",
       "timeSec": 1570,
       "title": "단일 종목 레버리지 ETF 정책 점검 화면",
       "caption": "국내 증시의 과도한 변동 원인으로 지목된 레버리지 ETF와 금융당국의 보완 논의를 정리한 장면",
+      "selectionBasis": "명시적 강조와 반복 문맥을 함께 반영. '굉장히 중요한 문제', '중요하다'는 표현과 함께 시장 변동성의 핵심 원인으로 반복 설명돼 선정.",
       "whyImportant": "전쟁 같은 외부 충격보다 국내에서 통제 가능한 거래 구조와 정책 속도가 시장 신뢰 회복의 핵심이라는 리포트 결론을 시각적으로 확인할 수 있다.",
       "sourceUrl": "https://www.youtube.com/watch?v=iowKpwIilxo&t=1570s",
       "imagePath": "captures/20260713_iowKpwIilxo/01.jpg"
     },
     {
-      "id": "sk-hynix-adr-debut-board",
-      "timestamp": "16:45",
-      "timeSec": 1005,
-      "title": "최태원 회장의 미국 투자·AI 데이터센터 발언 자료",
-      "caption": "인디애나 첨단 패키징 투자와 미국 내 추가 투자, AI 데이터센터·스타트업 합작투자 구상을 정리한 화면",
-      "whyImportant": "ADR 데뷔의 단기 주가 효과와 별개로 SK하이닉스가 글로벌 기업 수요와 미국 사업 확장을 장기 성장 축으로 제시했다는 점을 확인할 수 있다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=iowKpwIilxo&t=1005s",
-      "imagePath": "captures/20260713_iowKpwIilxo/02.jpg"
-    },
-    {
-      "id": "korea-property-tax-framework",
-      "timestamp": "56:45",
-      "timeSec": 3405,
-      "title": "한국 부동산 세제의 특수성 자료",
-      "caption": "해외 단순 비교보다 한국 부동산 시장의 구조적 특수성에서 세제 논의를 시작해야 한다는 발표 화면",
-      "whyImportant": "투기 수요 억제, 지역 편차 완화, 정책 신뢰 확보라는 후반부 자금 이동 논리를 구조적으로 보여준다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=iowKpwIilxo&t=3405s",
+      "id": "real-estate-tax-structure-board",
+      "timestamp": "58:20",
+      "timeSec": 3500,
+      "title": "부동산 시장 특수성 정리 화면",
+      "caption": "투기·투자 목적 보유, 지역별 가격 편차, 정책 민감도, 부동산 불패 인식을 정리한 장면",
+      "selectionBasis": "앞뒤 문맥과 명시적 강조를 함께 반영. '무엇이 중요한가', '특수성을 아는 게 중요하다', '핵심'이라는 흐름에서 정책 신뢰 논리의 근거 화면이라 선정.",
+      "whyImportant": "주식시장 신뢰 문제와 부동산 자금 이동 문제를 같은 정책 신뢰의 관점에서 연결하는 후반부 인사이트를 보여준다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=iowKpwIilxo&t=3500s",
       "imagePath": "captures/20260713_iowKpwIilxo/03.jpg"
     }
   ],
@@ -127,6 +152,14 @@
     {
       "id": "market-briefing",
       "title": "주식장 정리 브리핑"
+    },
+    {
+      "id": "noon-money-index",
+      "title": "정오의 Money 뉴스: 지수·환율 정보"
+    },
+    {
+      "id": "noon-money-headlines",
+      "title": "정오의 Money 뉴스: 주요 헤드라인"
     },
     {
       "id": "war-and-korea-volatility",
@@ -143,6 +176,10 @@
     {
       "id": "property-tax-capital-flow",
       "title": "부동산 세제와 생산적 자금 이동"
+    },
+    {
+      "id": "glossary-knowledge",
+      "title": "오늘의 용어/알아야 할 지식"
     }
   ],
   "sections": [
@@ -179,10 +216,78 @@
           }
         },
         {
-          "text": "환율 수치가 별도로 제시되지는 않았지만 유가 상승, 미국 국채금리 상승, 미국 선물과 아시아 증시 약세가 동시에 나타나 금리·대외 위험 부담이 국내 수급 압력과 겹친 장으로 해석됐다.",
+          "text": "Money 뉴스 지수판에는 원/달러 환율 1,508원이 함께 표시됐고, 방송 해석에서는 유가 상승, 미국 국채금리 상승, 미국 선물과 아시아 증시 약세가 동시에 나타나 금리·대외 위험 부담이 국내 수급 압력과 겹친 장으로 정리됐다.",
           "source": {
-            "chapter": "대외 시장 환경",
-            "timestamp": "09:35"
+            "chapter": "정오의 Money 뉴스 지수판",
+            "timestamp": "06:20"
+          }
+        }
+      ]
+    },
+    {
+      "id": "noon-money-index",
+      "title": "정오의 Money 뉴스: 코스피·코스닥·환율이 동시에 위험 신호를 보냈다",
+      "bullets": [
+        {
+          "text": "12시 기준 지수판은 코스피 7,035, 코스닥 818.3, 원/달러 환율 1,508원을 제시했다. 숫자 자체가 오늘 장의 출발점이며, 국내 주식과 환율 부담이 동시에 확인된 화면이다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 지수판",
+            "timestamp": "06:20"
+          }
+        },
+        {
+          "text": "방송은 코스피가 장중 한때 상승했다가 6% 가까운 하락으로 급반전했다고 설명했다. 단순 약세장이 아니라 오전 중 기대가 빠르게 무너진 장이었다는 점이 중요하다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 장중 반전",
+            "timestamp": "06:04"
+          }
+        },
+        {
+          "text": "코스닥도 2%대 하락으로 밀렸고, 외국인이 코스피 현물·선물과 코스닥에서 모두 매도세를 보였다는 점이 수급 압력으로 제시됐다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 수급",
+            "timestamp": "06:13"
+          }
+        },
+        {
+          "text": "지수와 환율을 함께 보면 오늘의 문제는 특정 종목 악재보다 위험 회피, 외국인 수급, 대외 변수 부담이 한꺼번에 가격에 반영된 장으로 해석된다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 시장 해석",
+            "timestamp": "06:33"
+          }
+        }
+      ]
+    },
+    {
+      "id": "noon-money-headlines",
+      "title": "정오의 Money 뉴스: 헤드라인은 전쟁, ADR, 레버리지, 글로벌 일정으로 압축됐다",
+      "bullets": [
+        {
+          "text": "첫 번째 헤드라인은 미국·이란 전쟁 재개 우려와 해운·석유·방산주 급등이었다. 방송은 지정학적 충격이 유가와 금리 부담을 통해 국내 증시에 전이되는 경로를 열어뒀다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 헤드라인",
+            "timestamp": "08:20"
+          }
+        },
+        {
+          "text": "두 번째와 세 번째 헤드라인은 SK하이닉스 ADR이 나스닥 첫날 공모가보다 13% 상승했지만, 국내 코스피는 장중 7200선을 후퇴했다는 괴리였다.",
+          "source": {
+            "chapter": "SK하이닉스 ADR 헤드라인",
+            "timestamp": "08:20"
+          }
+        },
+        {
+          "text": "네 번째 헤드라인은 청와대와 당국이 레버리지 ETF를 면밀히 살펴보고 있다는 내용이었다. 방송 후반의 핵심 논점인 시장 변동성 증폭 구조로 연결되는 예고편이다.",
+          "source": {
+            "chapter": "레버리지 ETF 헤드라인",
+            "timestamp": "08:20"
+          }
+        },
+        {
+          "text": "마지막 헤드라인은 7월 3주차 글로벌 증시 주요 일정이었다. ASML·TSMC 실적, 미국 물가 지표, 한국 금통위 같은 이벤트가 반도체와 금리 기대를 다시 흔들 수 있는 체크포인트로 제시됐다.",
+          "source": {
+            "chapter": "글로벌 증시 일정",
+            "timestamp": "08:20"
           }
         }
       ]
@@ -340,6 +445,47 @@
           "source": {
             "chapter": "생산적 자금 이동",
             "timestamp": "64:10"
+          }
+        }
+      ]
+    },
+    {
+      "id": "glossary-knowledge",
+      "title": "오늘의 용어/알아야 할 지식: 레버리지, ADR, 인버스, 국채금리",
+      "bullets": [
+        {
+          "text": "레버리지 ETF는 특정 주식이나 지수가 오를 때 수익을 더 크게 노리는 상품이다. 반대로 움직이면 손실도 더 커질 수 있어 방송에서는 급락장에서 손실 만회 수단으로 쓰지 말라고 경고했다.",
+          "source": {
+            "chapter": "레버리지 ETF 설명",
+            "timestamp": "25:37"
+          }
+        },
+        {
+          "text": "인버스는 지수나 종목이 하락할 때 수익이 나도록 설계된 상품이다. 방송에서는 레버리지와 인버스 거래가 본주보다 커지면 시장 가격을 더 흔들 수 있다고 봤다.",
+          "source": {
+            "chapter": "레버리지·인버스 수급",
+            "timestamp": "34:15"
+          }
+        },
+        {
+          "text": "ADR은 해외 투자자가 미국 시장에서 외국 기업 주식을 쉽게 거래할 수 있게 만든 예탁증서다. SK하이닉스 ADR이 흥행해도 국내 본주와 바로 같은 방향으로 움직인다고 단정할 수는 없다는 설명이 나왔다.",
+          "source": {
+            "chapter": "SK하이닉스 ADR",
+            "timestamp": "16:00"
+          }
+        },
+        {
+          "text": "국채금리는 정부가 발행한 채권의 수익률이다. 금리가 오르면 위험자산 선호가 약해질 수 있어, 방송은 미국 국채금리 상승을 국내 증시 부담 요인 중 하나로 언급했다.",
+          "source": {
+            "chapter": "유가·국채금리 압력",
+            "timestamp": "09:35"
+          }
+        },
+        {
+          "text": "CPI와 PPI는 각각 소비자물가와 생산자물가 지표다. 물가 지표는 금리 기대와 반도체·성장주 투자심리에 영향을 줄 수 있어 이번 주 체크포인트로 제시됐다.",
+          "source": {
+            "chapter": "이번 주 주요 일정",
+            "timestamp": "49:50"
           }
         }
       ]

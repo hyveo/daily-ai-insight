@@ -5,7 +5,7 @@
   "generatedAt": "2026-07-14T14:11:10+09:00",
   "summaryUpdatedAt": "2026-07-14T14:11:10+09:00",
   "summaryStyle": "insight-report",
-  "reportVersion": "insight-v2",
+  "reportVersion": "insight-v3.0.0",
   "editor": {
     "name": "hyveo",
     "url": "./index.html"
@@ -85,11 +85,12 @@
   },
   "visualHighlights": [
     {
-      "id": "kospi-kosdaq-market-board",
+      "id": "noon-money-news-market-board",
       "timestamp": "08:35",
       "timeSec": 515,
-      "title": "코스피·코스닥·환율 장중 시장 보드",
+      "title": "정오의 Money 뉴스 시장 보드",
       "caption": "코스피와 코스닥의 낙폭 확대, 원·달러 환율 흐름을 함께 보여주는 장중 현황 화면",
+      "selectionBasis": "화면 직접 근거. 정오의 Money 뉴스에서 코스피·코스닥·환율을 한 화면에 보여주며, 이후 시장 급락 해석의 출발점이 되는 지표라 선정.",
       "whyImportant": "중동 뉴스 이후 국내 양대 지수가 동시에 흔들린 출발점과 환율 부담을 한 화면에서 확인해 주식장 정리 브리핑의 기준점이 된다.",
       "sourceUrl": "https://www.youtube.com/watch?v=SIbDvPoNTy8&t=515s",
       "imagePath": "captures/20260714_SIbDvPoNTy8/01.jpg"
@@ -100,6 +101,7 @@
       "timeSec": 1205,
       "title": "워시 연준 의장 발언·물가지수 일정 자료",
       "caption": "신임 연준 의장의 첫 의회 발언과 미국 물가지수 공개가 겹친 시장 일정을 정리한 화면",
+      "selectionBasis": "앞뒤 문맥상 중요도와 일정 화면 근거를 함께 반영. 방송이 전쟁발 유가 상승과 CPI·연준 발언을 금리 불확실성의 핵심 변수로 연결해 설명했기 때문에 선정.",
       "whyImportant": "중동 충격이 인플레이션 압력을 키우는 가운데 연준의 정책 언어와 물가 지표가 금리 동결 기대를 좌우할 핵심 일정임을 확인할 수 있다.",
       "sourceUrl": "https://www.youtube.com/watch?v=SIbDvPoNTy8&t=1205s",
       "imagePath": "captures/20260714_SIbDvPoNTy8/02.jpg"
@@ -109,6 +111,10 @@
     {
       "id": "market-briefing",
       "title": "주식장 정리 브리핑"
+    },
+    {
+      "id": "money-news",
+      "title": "정오의 Money 뉴스"
     },
     {
       "id": "geopolitical-rate-risk",
@@ -125,6 +131,10 @@
     {
       "id": "policy-and-market-recovery",
       "title": "예측 가능한 정책과 시장 회복 조건"
+    },
+    {
+      "id": "glossary",
+      "title": "오늘의 용어/알아야 할 지식"
     }
   ],
   "sections": [
@@ -165,6 +175,40 @@
           "source": {
             "chapter": "반도체와 코스닥 종목 확산",
             "timestamp": "61:50"
+          }
+        }
+      ]
+    },
+    {
+      "id": "money-news",
+      "title": "정오의 Money 뉴스: 시장 보드와 헤드라인이 보여준 당일 불확실성",
+      "bullets": [
+        {
+          "text": "정오의 Money 뉴스는 코스피가 2.6%대 하락으로 6,600선까지 밀리고 코스닥이 4.7%대까지 낙폭을 키운 흐름을 먼저 제시했다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 시장 보드",
+            "timestamp": "08:35"
+          }
+        },
+        {
+          "text": "환율은 1,491원 부근에서 지나가며 일정 부분 안정을 찾는 모습으로 언급됐지만, 이후 달러와 미 국채금리 상승이 다시 부담 요인으로 연결됐다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 시장 보드",
+            "timestamp": "08:35"
+          }
+        },
+        {
+          "text": "뉴스 헤드라인은 중동 리스크와 뉴욕 증시 약세, 케빈 워시 연준 의장의 첫 의회 발언, 미국 6월 CPI 발표, 미국 중부사령부의 이란 추가 공습, 반도체 증권사 리포트의 긍정적 이익 전망으로 구성됐다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스 헤드라인",
+            "timestamp": "09:15"
+          }
+        },
+        {
+          "text": "이 구간은 당일 리포트의 핵심 논리인 '대외 충격이 유가·금리로 번지고, 국내에서는 레버리지와 지수 추종 수급이 낙폭을 키웠다'는 해석의 배경 데이터를 제공했다.",
+          "source": {
+            "chapter": "정오의 Money 뉴스",
+            "timestamp": "10:20"
           }
         }
       ]
@@ -315,6 +359,47 @@
           "source": {
             "chapter": "수급의 회복 단서",
             "timestamp": "38:10"
+          }
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "title": "오늘의 용어/알아야 할 지식: 레버리지, 인버스, 사이드카, CPI, PPI, 국채금리",
+      "bullets": [
+        {
+          "text": "레버리지: 가격이 오르거나 내릴 때 수익·손실이 원래 움직임보다 크게 나타나도록 설계된 투자 방식이다. 방송에서는 레버리지 상품에 거래가 몰리면 작은 충격도 시장 전체의 매도 압력으로 증폭될 수 있다고 설명했다.",
+          "source": {
+            "chapter": "ETF·레버리지의 무차별 매매",
+            "timestamp": "61:35"
+          }
+        },
+        {
+          "text": "인버스: 시장이나 종목 가격이 내려갈 때 수익이 나도록 설계된 상품이다. 방송에서는 레버리지·인버스 거래가 방향성 베팅으로 쏠리면 정상적인 기업 가치 판단을 흐릴 수 있다고 봤다.",
+          "source": {
+            "chapter": "레버리지·인버스 거래",
+            "timestamp": "45:29"
+          }
+        },
+        {
+          "text": "사이드카: 지수선물 가격이 급변할 때 프로그램 매매를 일시적으로 제한해 시장 충격을 줄이는 장치다. 이날 코스닥 매도 사이드카 발동은 변동성이 평소보다 커졌다는 신호로 다뤄졌다.",
+          "source": {
+            "chapter": "코스닥 사이드카와 마감 전 흐름",
+            "timestamp": "17:35"
+          }
+        },
+        {
+          "text": "CPI와 PPI: CPI는 소비자물가, PPI는 생산자물가 흐름을 보는 지표다. 방송은 미국 물가 지표가 유가 충격과 결합해 금리 동결 기대를 흔들 수 있는 변수라고 설명했다.",
+          "source": {
+            "chapter": "CPI와 전쟁의 물가 효과",
+            "timestamp": "20:30"
+          }
+        },
+        {
+          "text": "국채금리: 정부가 발행한 채권의 수익률이다. 미국 국채금리가 오르면 위험자산의 할인율과 투자심리에 부담이 커질 수 있어, 방송은 10년물 4.6%대와 장기물 5%대를 중요한 부담 신호로 언급했다.",
+          "source": {
+            "chapter": "유가와 국채금리",
+            "timestamp": "15:35"
           }
         }
       ]

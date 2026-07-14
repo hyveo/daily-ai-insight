@@ -79,6 +79,16 @@ button {
   overflow: hidden;
 }
 
+.site-ad-label {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: right;
+}
+
 .site-ad-slot--detail {
   width: min(100% - 32px, 728px);
 }
@@ -322,6 +332,112 @@ button {
 
 .hero-cover > * {
   position: relative;
+}
+
+.home-manifesto {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(380px, 0.75fr);
+  gap: 54px;
+  margin: 32px 52px 0;
+  padding: 34px 0 36px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.home-manifesto-copy {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  column-gap: 20px;
+}
+
+.home-manifesto-index {
+  grid-row: 1 / span 3;
+  padding-top: 8px;
+  color: var(--accent);
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.home-manifesto h2 {
+  margin: 0;
+  font-family: "Noto Serif KR", serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.35;
+}
+
+.home-manifesto h2 em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.home-manifesto-copy p {
+  max-width: 560px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.home-manifesto-copy a {
+  width: max-content;
+  margin-top: 18px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.8;
+}
+
+.home-manifesto-copy a span {
+  color: var(--accent);
+}
+
+.home-manifesto-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-self: stretch;
+  margin: 0;
+  border-left: 1px solid var(--line);
+}
+
+.home-manifesto-stats div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+  padding: 0 16px 4px;
+  border-right: 1px solid var(--line);
+}
+
+.home-manifesto-stats dt {
+  overflow: hidden;
+  font-family: "Noto Serif KR", serif;
+  font-size: clamp(25px, 2.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-manifesto-stats dt small {
+  margin-left: 4px;
+  color: var(--accent);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0;
+}
+
+.home-manifesto-stats dd {
+  margin: 9px 0 0;
+  color: var(--faint);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .cover-source,
@@ -1613,6 +1729,16 @@ button {
   border-top: 1px solid var(--line);
 }
 
+.visual-section-note {
+  max-width: 680px;
+  margin: 12px 0 0;
+  color: #5f574d;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
 .visual-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1677,6 +1803,143 @@ button {
 
 .visual-card small {
   color: #7d756a;
+}
+
+.visual-reason {
+  display: grid;
+  gap: 5px;
+}
+
+.visual-reason b {
+  color: var(--accent);
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.visual-basis {
+  display: block;
+  padding: 9px 10px 9px 12px;
+  border: 1px solid #ded6ca;
+  border-left: 3px solid var(--accent);
+  background: #fbf7ef;
+  color: #5f574d;
+  font-size: 12px;
+  line-height: 1.58;
+}
+
+.money-section,
+.glossary-section {
+  margin-top: 46px;
+  padding-top: 34px;
+  border-top: 2px solid var(--ink);
+}
+
+.money-section h2,
+.glossary-section h2 {
+  display: block;
+  font-size: 30px;
+}
+
+.money-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.money-visual-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  color: inherit;
+}
+
+.money-visual-card:hover strong {
+  color: var(--accent);
+}
+
+.money-visual-card strong {
+  color: #211c15;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.money-visual-card p {
+  margin: 0;
+  color: #4b443a;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.money-news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.money-news-card {
+  min-width: 0;
+}
+
+.money-news-card h3 {
+  margin: 0;
+  color: #211c15;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.glossary-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.glossary-tags span {
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  color: var(--accent);
+  font-family: "Space Mono", "Noto Sans KR", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.glossary-list {
+  display: grid;
+  gap: 16px;
+  margin: 22px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.glossary-list div {
+  display: grid;
+  grid-template-columns: minmax(86px, 0.28fr) 1fr;
+  gap: 16px;
+}
+
+.glossary-list dt {
+  color: #211c15;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.6;
+}
+
+.glossary-list dd {
+  margin: 0;
+  color: #211c15;
+  font-family: "Noto Serif KR", serif;
+  font-size: 17px;
+  line-height: 1.62;
 }
 
 .split-section,
@@ -2488,6 +2751,58 @@ button {
     background: rgba(255, 255, 255, 0.16);
   }
 
+  .home-manifesto {
+    display: block;
+    margin: 22px 20px 0;
+    padding: 24px 0 0;
+    border-bottom: 0;
+  }
+
+  .home-manifesto-copy {
+    display: block;
+  }
+
+  .home-manifesto-index {
+    display: block;
+    margin-bottom: 12px;
+    padding: 0;
+  }
+
+  .home-manifesto h2 {
+    font-size: 25px;
+    line-height: 1.42;
+  }
+
+  .home-manifesto-copy p {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .home-manifesto-copy a {
+    display: inline-block;
+    margin-top: 14px;
+  }
+
+  .home-manifesto-stats {
+    margin-top: 24px;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .home-manifesto-stats div {
+    min-height: 88px;
+    padding: 18px 10px 14px 0;
+  }
+
+  .home-manifesto-stats dt {
+    font-size: 22px;
+  }
+
+  .home-manifesto-stats dd {
+    font-size: 9px;
+  }
+
   .shortcut-row {
     justify-content: flex-start;
     gap: 20px;
@@ -3196,6 +3511,29 @@ button {
     gap: 18px;
   }
 
+  .money-section,
+  .glossary-section {
+    margin-top: 34px;
+    padding-top: 26px;
+  }
+
+  .money-section h2,
+  .glossary-section h2 {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  .money-visual-grid,
+  .money-news-grid,
+  .glossary-list div {
+    grid-template-columns: 1fr;
+  }
+
+  .glossary-list dd {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
   .visual-card {
     gap: 9px;
   }
@@ -3207,6 +3545,11 @@ button {
   .visual-card p,
   .visual-card small {
     font-size: 12.5px;
+  }
+
+  .visual-section-note {
+    font-size: 13px;
+    line-height: 1.7;
   }
 
   .split-grid {

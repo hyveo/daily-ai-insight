@@ -7,6 +7,7 @@
   var DATA_ROOT = BASE_PATH + 'data';
   var DEFAULT_CHANNEL_ID = '12siemannayo';
   var USER_STATE_KEY = 'yda:v1:userState';
+  var TRAFFIC_SESSION_KEY = 'yda:v1:trafficParams';
   var toastTimer = null;
   var appDataPromise = null;
   var heroTimer = null;
@@ -14,7 +15,6 @@
   var tocScrollRoot = null;
   var searchEventTimer = null;
   var lastSearchEventKey = '';
-  var TRAFFIC_SESSION_KEY = 'yda:v1:trafficParams';
 
   function hasValue(value){
     if (value === null || value === undefined) return false;
@@ -708,12 +708,29 @@
 
     main.innerHTML = [
       renderHomeHero(app.defaultChannel, heroItems),
+      renderHomeManifesto(bundle, latest),
       renderShortcuts(getHomeShortcuts(app)),
       renderFeaturedChannels(app, bundle),
       renderRankings(app, bundle)
     ].filter(hasValue).join('');
     initHomeHeroCarousel(app.defaultChannel, heroItems);
     trackPageViewEvent('index.html');
+  }
+
+  function renderHomeManifesto(bundle, latest){
+    var reportCount = bundle.videos.filter(function(video){
+      return !!bundle.summaries[video.videoId] || String(video.hasSummary).toUpperCase() === 'Y';
+    }).length;
+    var latestLabel = latest && latest.publishedAt ? formatDateDot(latest.publishedAt) : '매일 업데이트';
+    return '<section class="home-manifesto" aria-labelledby="home-manifesto-title">' +
+      '<div class="home-manifesto-copy"><span class="home-manifesto-index">01 / WHY</span>' +
+      '<h2 id="home-manifesto-title">긴 방송은 그대로 두고,<br><em>핵심 판단만 선명하게.</em></h2>' +
+      '<p>YouTube 방송의 맥락을 놓치지 않으면서 핵심 논점, 시장 브리핑, 관전 포인트를 읽기 좋은 AI 리포트로 재구성합니다.</p>' +
+      '<a href="info.html">서비스 원칙 보기 <span aria-hidden="true">↗</span></a></div>' +
+      '<dl class="home-manifesto-stats"><div><dt>' + escapeHtml(String(reportCount)) + '</dt><dd>발행된 AI 리포트</dd></div>' +
+      '<div><dt>4<small>MIN</small></dt><dd>목표 읽기 시간</dd></div>' +
+      '<div><dt>' + escapeHtml(latestLabel) + '</dt><dd>최근 리포트 기준</dd></div></dl>' +
+      '</section>';
   }
 
   function renderHomeHero(channel, items){
@@ -1221,7 +1238,7 @@
     if (!summary || !Array.isArray(summary.visualHighlights)) return [];
     return summary.visualHighlights.filter(function(item){
       return item && hasSafeVisualHighlightPath(item.imagePath) && (hasValue(item.title) || hasValue(item.caption));
-    }).slice(0, 3);
+    });
   }
 
   function visualHighlightImageSrc(channel, item){
@@ -1235,7 +1252,7 @@
   }
 
   function renderVisualHighlights(summary, channel){
-    var items = getVisualHighlights(summary);
+    var items = getGeneralVisualHighlights(summary);
     if (!hasValue(items)) return '';
     var cards = items.map(function(item, index){
       var imageSrc = visualHighlightImageSrc(channel, item);
@@ -1246,15 +1263,157 @@
         '<span class="visual-media"><img src="' + escapeAttr(imageSrc) + '" alt="' + escapeAttr(title) + '" loading="lazy"><span class="visual-time">' + escapeHtml(item.timestamp || '') + '</span></span>' +
         '<strong>' + escapeHtml(title) + '</strong>' +
         (hasValue(item.caption) ? '<p>' + escapeHtml(item.caption) + '</p>' : '') +
-        (hasValue(item.whyImportant) ? '<small>' + escapeHtml(item.whyImportant) + '</small>' : '') +
+        renderVisualReason(item) +
         '</a>';
     }).filter(hasValue).join('');
     if (!cards) return '';
-    return '<section id="visual-highlights" class="report-section visual-section"><p class="section-label">중요 장면</p><h2>영상으로 확인할 포인트</h2><div class="visual-grid">' + cards + '</div></section>';
+    return '<section id="visual-highlights" class="report-section visual-section"><p class="section-label">중요 장면</p><h2>영상으로 확인할 포인트</h2>' +
+      '<p class="visual-section-note">AI가 리포트의 핵심 논리를 뒷받침한다고 판단한 실제 방송 장면입니다. 각 카드 하단에 선정 이유를 함께 표시합니다.</p>' +
+      '<div class="visual-grid">' + cards + '</div></section>';
+  }
+
+  function renderVisualReason(item){
+    if (!hasValue(item && item.whyImportant) && !hasValue(item && item.selectionBasis)) return '';
+    return '<small class="visual-reason"><b>AI 선정 이유</b>' +
+      (hasValue(item.selectionBasis) ? '<span class="visual-basis">선정 근거: ' + escapeHtml(item.selectionBasis) + '</span>' : '') +
+      (hasValue(item.whyImportant) ? '<span>' + escapeHtml(item.whyImportant) + '</span>' : '') +
+      '</small>';
+  }
+
+  function sectionTitle(section){
+    return String(section && section.title || '');
+  }
+
+  function sectionId(section){
+    return String(section && section.id || '');
+  }
+
+  function isMoneyNewsSection(section){
+    return /money|머니|정오의\s*money\s*뉴스/i.test(sectionId(section)) || /정오의\s*(Money|머니)\s*뉴스/i.test(sectionTitle(section));
+  }
+
+  function isGlossarySection(section){
+    return /glossary|knowledge|term/i.test(sectionId(section)) || /용어|알아야 할 지식/.test(sectionTitle(section));
+  }
+
+  function splitReportSections(summary){
+    var sections = Array.isArray(summary && summary.sections) ? summary.sections.filter(hasValue) : [];
+    var money = [];
+    var glossary = [];
+    var body = [];
+    sections.forEach(function(section){
+      if (isMoneyNewsSection(section)) money.push(section);
+      else if (isGlossarySection(section)) glossary.push(section);
+      else body.push(section);
+    });
+    return { money: money, glossary: glossary, body: body };
+  }
+
+  function renderBulletList(bullets){
+    bullets = Array.isArray(bullets) ? bullets : [];
+    if (!hasValue(bullets)) return '';
+    return '<ul>' + bullets.map(function(item){
+      return '<li>' + escapeHtml(typeof item === 'string' ? item : item.text || '') + renderSourceNote(item && item.source) + '</li>';
+    }).join('') + '</ul>';
+  }
+
+  function isMoneyNewsHighlight(item){
+    var text = [
+      item && item.id,
+      item && item.title,
+      item && item.caption,
+      item && item.whyImportant
+    ].join(' ');
+    return /money|머니|정오|지수|환율|헤드라인|뉴스/i.test(text);
+  }
+
+  function getGeneralVisualHighlights(summary){
+    return getVisualHighlights(summary).filter(function(item){ return !isMoneyNewsHighlight(item); }).slice(0, 3);
+  }
+
+  function renderMoneyNewsImages(summary, channel){
+    var items = getVisualHighlights(summary).filter(isMoneyNewsHighlight).slice(0, 3);
+    if (!hasValue(items)) return '';
+    return '<div class="money-visual-grid">' + items.map(function(item){
+      var imageSrc = visualHighlightImageSrc(channel, item);
+      if (!imageSrc) return '';
+      return '<a class="money-visual-card" href="' + escapeAttr(item.sourceUrl || summary.sourceUrl || '#') + '" target="_blank" rel="noreferrer">' +
+        '<span class="visual-media"><img src="' + escapeAttr(imageSrc) + '" alt="' + escapeAttr(item.title || '정오의 Money 뉴스 화면') + '" loading="lazy"><span class="visual-time">' + escapeHtml(item.timestamp || '') + '</span></span>' +
+        '<strong>' + escapeHtml(item.title || '정오의 Money 뉴스 화면') + '</strong>' +
+        (hasValue(item.caption) ? '<p>' + escapeHtml(item.caption) + '</p>' : '') +
+        '</a>';
+    }).filter(hasValue).join('') + '</div>';
+  }
+
+  function renderMoneyNewsSections(sections, summary, channel){
+    if (!hasValue(sections)) return '';
+    return '<section id="money-news" class="report-section money-section"><p class="section-label">뉴스 브리핑</p><h2>정오의 Money 뉴스</h2>' +
+      renderMoneyNewsImages(summary, channel) +
+      '<div class="money-news-grid">' +
+      sections.map(function(section){
+        return '<article class="money-news-card"><h3>' + escapeHtml(sectionTitle(section).replace(/^정오의\s*(Money|머니)\s*뉴스\s*[:：]?\s*/i, '') || '브리핑') + '</h3>' +
+          renderBulletList(section.bullets) + '</article>';
+      }).join('') +
+      '</div></section>';
+  }
+
+  function glossaryTermsFromSection(section){
+    var title = sectionTitle(section);
+    var raw = title.indexOf(':') >= 0 ? title.split(':').slice(1).join(':') : '';
+    return raw.split(/[,，#]/).map(function(term){ return term.trim(); }).filter(Boolean);
+  }
+
+  function glossaryEntryFromBullet(item, terms){
+    var text = typeof item === 'string' ? item : String(item && item.text || '');
+    var normalized = text.trim();
+    var term = '';
+    var desc = normalized;
+    terms.some(function(candidate){
+      var clean = candidate.replace(/^#/, '').trim();
+      if (clean && normalized.toLowerCase().indexOf(clean.toLowerCase()) === 0){
+        var rest = normalized.slice(clean.length).trim();
+        term = clean;
+        desc = /^ETF\s*(는|은)?\s*/i.test(rest)
+          ? rest
+          : rest.replace(/^(는|은|:|：|-|–|—)\s*/i, '').trim();
+        return true;
+      }
+      return false;
+    });
+    if (!term){
+      var match = normalized.match(/^([^:：은는]+)(?:[:：]|은|는)\s*(.+)$/);
+      if (match){
+        term = match[1].trim();
+        desc = match[2].trim();
+      }
+    }
+    return { term: term, desc: desc, source: item && item.source };
+  }
+
+  function renderGlossarySections(sections){
+    if (!hasValue(sections)) return '';
+    var tags = [];
+    var entries = [];
+    sections.forEach(function(section){
+      var terms = glossaryTermsFromSection(section);
+      terms.forEach(function(term){
+        if (tags.indexOf(term) < 0) tags.push(term);
+      });
+      (Array.isArray(section.bullets) ? section.bullets : []).forEach(function(item){
+        var entry = glossaryEntryFromBullet(item, terms);
+        if (entry.term || entry.desc) entries.push(entry);
+      });
+    });
+    return '<section id="glossary" class="report-section glossary-section"><p class="section-label">기초 지식</p><h2>오늘의 용어/알아야 할 지식</h2>' +
+      (hasValue(tags) ? '<div class="glossary-tags">' + tags.map(function(term){ return '<span>#' + escapeHtml(term.replace(/^#/, '')) + '</span>'; }).join('') + '</div>' : '') +
+      '<dl class="glossary-list">' + entries.map(function(entry){
+        return '<div><dt>' + escapeHtml(entry.term || '알아둘 개념') + '</dt><dd>' + escapeHtml(entry.desc) + renderSourceNote(entry.source) + '</dd></div>';
+      }).join('') + '</dl></section>';
   }
 
   function renderSummaryArticle(summary, channel){
     var html = '';
+    var sectionGroups = splitReportSections(summary);
     if (hasValue(summary.headline) || hasValue(summary.insightSummary)){
       html += '<section class="ai-lead"><div class="ai-lead-title"><span>✦</span> AI 분석 리포트</div>' +
         (hasValue(summary.headline) ? '<p>' + escapeHtml(summary.headline) + '</p>' : '') +
@@ -1264,6 +1423,7 @@
     if (hasValue(summary.insightSummary)){
       html += '<section id="insight" class="report-section insight-section"><p class="section-label">핵심 해석</p><h2>오늘의 Insight</h2><p class="insight-copy">' + escapeHtml(summary.insightSummary) + '</p></section>';
     }
+    html += renderMoneyNewsSections(sectionGroups.money, summary, channel);
     html += renderVisualHighlights(summary, channel);
     if (hasValue(summary.readerTakeaways) || hasValue(summary.watchPoints)){
       html += '<section id="investor-view" class="report-section split-section"><p class="section-label">관점 정리</p><h2>투자자가 가져갈 관점과 체크포인트</h2><div class="split-grid">' +
@@ -1272,9 +1432,10 @@
     if (summary.strategyFrame && hasValue(summary.strategyFrame)){
       html += renderStrategyFrame(summary.strategyFrame);
     }
-    if (hasValue(summary.sections)){
-      html += '<div id="chapter-summary" class="chapter-heading"><p class="section-label">방송</p><h2>챕터별 요약</h2></div>' +
-        summary.sections.map(function(section, index){ return renderReportSection(section, index + 1); }).join('');
+    html += renderGlossarySections(sectionGroups.glossary);
+    if (hasValue(sectionGroups.body)){
+      html += '<div id="chapter-summary" class="chapter-heading"><p class="section-label">리포트</p><h2>리포트 본문</h2></div>' +
+        sectionGroups.body.map(function(section, index){ return renderReportSection(section, index + 1); }).join('');
     } else if (hasValue(summary.keyBullets)){
       html += '<section class="report-section"><h2>핵심 요약</h2><ul>' + summary.keyBullets.map(function(text){ return '<li>' + escapeHtml(text) + '</li>'; }).join('') + '</ul></section>';
     }
@@ -1283,16 +1444,19 @@
 
   function renderToc(summary, className){
     var top = [];
+    var sectionGroups = splitReportSections(summary);
     function addTop(href, title){
       top.push({ href: href, num: String(top.length + 1), title: title });
     }
     if (hasValue(summary.insightSummary)) addTop('#insight', '오늘의 Insight');
-    if (hasValue(getVisualHighlights(summary))) addTop('#visual-highlights', '중요 장면');
+    if (hasValue(sectionGroups.money)) addTop('#money-news', '정오의 Money 뉴스');
+    if (hasValue(getGeneralVisualHighlights(summary))) addTop('#visual-highlights', '중요 장면');
     if (hasValue(summary.readerTakeaways) || hasValue(summary.watchPoints)) addTop('#investor-view', '투자 관점과 체크포인트');
     if (hasValue(summary.strategyFrame)) addTop('#strategy-frame', '전략 판단 체크프레임');
-    if (hasValue(summary.sections)) addTop('#chapter-summary', '챕터별 요약');
+    if (hasValue(sectionGroups.glossary)) addTop('#glossary', '오늘의 용어');
+    if (hasValue(sectionGroups.body)) addTop('#chapter-summary', '리포트 본문');
     var chapterNum = String(top.length || 1);
-    var subs = (summary.toc || summary.sections || []).map(function(item, index){
+    var subs = sectionGroups.body.map(function(item, index){
       return { href: '#sec-' + (index + 1), num: chapterNum + '.' + (index + 1), title: item.title };
     });
     var rows = top.concat(subs);
