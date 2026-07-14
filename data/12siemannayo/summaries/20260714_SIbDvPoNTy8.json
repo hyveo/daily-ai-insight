@@ -97,13 +97,13 @@
     },
     {
       "id": "noon-money-news-headline-board",
-      "timestamp": "09:20",
-      "timeSec": 560,
+      "timestamp": "10:10",
+      "timeSec": 610,
       "title": "정오의 Money 뉴스 헤드라인 보드",
-      "caption": "뉴욕 증시 약세, 케빈 워시 의장 발언, 6월 CPI, 미국의 이란 공습, 반도체 리포트를 한 화면에 정리한 뉴스 목록",
+      "caption": "중동 리스크와 뉴욕 증시 하락, 워시 연준의장 발언과 물가지수, 증시 하락 전환, 시장 사이클 점검을 한 화면에 정리한 헤드라인 보드",
       "selectionBasis": "화면 직접 근거. Money 뉴스 시장 보드와 헤드라인 보드를 한 쌍으로 보여주기 위해 선정.",
       "whyImportant": "정오의 Money 뉴스가 어떤 이슈 묶음으로 당일 시장 불확실성을 설명했는지 한 화면에서 확인할 수 있다.",
-      "sourceUrl": "https://www.youtube.com/watch?v=SIbDvPoNTy8&t=560s",
+      "sourceUrl": "https://www.youtube.com/watch?v=SIbDvPoNTy8&t=610s",
       "imagePath": "captures/20260714_SIbDvPoNTy8/02.jpg"
     },
     {

@@ -1339,6 +1339,9 @@
   }
 
   function displayMoneyNewsTitle(item){
+    var rank = moneyNewsHighlightRank(item);
+    if (rank === 1) return '지수·환율 보드';
+    if (rank === 2) return '헤드라인 보드';
     var title = String(item && item.title || '화면').trim();
     title = title.replace(/^정오의\s*(Money|머니)\s*뉴스\s*[:：]?\s*/i, '').trim();
     return title || '화면';
