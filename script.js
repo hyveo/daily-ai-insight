@@ -8,6 +8,7 @@
   var DEFAULT_CHANNEL_ID = '12siemannayo';
   var USER_STATE_KEY = 'yda:v1:userState';
   var TRAFFIC_SESSION_KEY = 'yda:v1:trafficParams';
+  var SERVICE_OPEN_DATE = new Date('2026-06-25T00:00:00+09:00');
   var toastTimer = null;
   var appDataPromise = null;
   var heroTimer = null;
@@ -379,6 +380,12 @@
     return parts.month + '·' + parts.day;
   }
 
+  function getServiceOpenDays(reference){
+    var now = reference instanceof Date ? reference : new Date();
+    var diff = now.getTime() - SERVICE_OPEN_DATE.getTime();
+    return Math.max(0, Math.floor(diff / 86400000));
+  }
+
   function formatKstMinute(value){
     var date = value ? new Date(value) : null;
     if (!date || Number.isNaN(date.getTime())) return '-';
@@ -708,7 +715,6 @@
 
     main.innerHTML = [
       renderHomeHero(app.defaultChannel, heroItems),
-      renderHomeManifesto(bundle, latest),
       renderShortcuts(getHomeShortcuts(app)),
       renderFeaturedChannels(app, bundle),
       renderRankings(app, bundle)
@@ -717,20 +723,16 @@
     trackPageViewEvent('index.html');
   }
 
-  function renderHomeManifesto(bundle, latest){
+  function hydrateInfoManifesto(app){
+    var bundle = app.bundles[app.defaultChannel.id];
+    if (!bundle) return;
     var reportCount = bundle.videos.filter(function(video){
       return !!bundle.summaries[video.videoId] || String(video.hasSummary).toUpperCase() === 'Y';
     }).length;
-    var latestLabel = latest && latest.publishedAt ? formatDateDot(latest.publishedAt) : '매일 업데이트';
-    return '<section class="home-manifesto" aria-labelledby="home-manifesto-title">' +
-      '<div class="home-manifesto-copy"><span class="home-manifesto-index">01 / WHY</span>' +
-      '<h2 id="home-manifesto-title">긴 방송은 그대로 두고,<br><em>핵심 판단만 선명하게.</em></h2>' +
-      '<p>YouTube 방송의 맥락을 놓치지 않으면서 핵심 논점, 시장 브리핑, 관전 포인트를 읽기 좋은 AI 리포트로 재구성합니다.</p>' +
-      '<a href="info.html">서비스 원칙 보기 <span aria-hidden="true">↗</span></a></div>' +
-      '<dl class="home-manifesto-stats"><div><dt>' + escapeHtml(String(reportCount)) + '</dt><dd>발행된 AI 리포트</dd></div>' +
-      '<div><dt>4<small>MIN</small></dt><dd>목표 읽기 시간</dd></div>' +
-      '<div><dt>' + escapeHtml(latestLabel) + '</dt><dd>최근 리포트 기준</dd></div></dl>' +
-      '</section>';
+    var latest = getLatestSummaryVideo(bundle);
+    setText('[data-info-report-count]', String(reportCount));
+    setText('[data-info-open-days]', String(getServiceOpenDays()));
+    setSiteDate(latest && latest.publishedAt);
   }
 
   function renderHomeHero(channel, items){
@@ -1656,16 +1658,16 @@
     trackSessionEntry();
     setSiteDate();
     if (['index.html', 'channel.html', 'channel-detail.html', 'detail.html', 'episodes.html', 'my.html', 'info.html'].indexOf(page) < 0) return;
-    if (page === 'info.html') {
-      trackPageViewEvent('info.html');
-      return;
-    }
     loadAppData().then(function(app){
       if (page === 'index.html') renderHome(app);
       if (page === 'channel.html') renderChannelListPage(app);
       if (page === 'channel-detail.html') renderChannel(app);
       if (page === 'detail.html' || page === 'episodes.html') renderDetail(app);
       if (page === 'my.html') renderMy(app);
+      if (page === 'info.html') {
+        hydrateInfoManifesto(app);
+        trackPageViewEvent('info.html');
+      }
     }).catch(function(err){
       console.error(err);
       showToast('데이터를 불러오지 못했습니다.');

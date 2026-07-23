@@ -2207,8 +2207,8 @@ button {
 }
 
 .info-intro-visual {
-  width: 100%;
-  margin: 0 0 22px;
+  width: 70%;
+  margin: 0 auto 22px;
   overflow: hidden;
   background: var(--paper);
 }
@@ -2217,6 +2217,10 @@ button {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.info-main .info-manifesto {
+  margin: 0 0 24px;
 }
 
 .service-box-full {
@@ -3797,8 +3801,14 @@ button {
   }
 
   .info-intro-visual {
-    margin: 0 0 16px;
+    width: 70%;
+    margin: 0 auto 16px;
     border-radius: 18px;
+  }
+
+  .info-main .info-manifesto {
+    display: block;
+    margin: 0 0 18px;
   }
 
   .info-main .service-box {
