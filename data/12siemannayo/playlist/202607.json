@@ -72,7 +72,8 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-07-23T23:56:35+09:00",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-07-22T11:55:20.009109+09:00",
       "liveEndedAt": "2026-07-22T14:00:09.044129+09:00"
@@ -108,7 +109,8 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-07-23T23:56:35+09:00",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-07-17T11:55:18.936727+09:00",
       "liveEndedAt": "2026-07-17T14:00:11.691417+09:00"
@@ -144,7 +146,8 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-07-23T23:56:35+09:00",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-07-16T11:55:21.036925+09:00",
       "liveEndedAt": "2026-07-16T14:00:11.162838+09:00"
@@ -180,7 +183,8 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-07-23T23:56:35+09:00",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-07-15T11:55:20.325922+09:00",
       "liveEndedAt": "2026-07-15T14:00:10.296611+09:00"
@@ -440,7 +444,8 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-07-23T23:56:35+09:00",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-07-06T11:55:19.385876+09:00",
       "liveEndedAt": "2026-07-06T14:00:10.939270+09:00"

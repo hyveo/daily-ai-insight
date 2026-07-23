@@ -1,0 +1,237 @@
+{
+  "videoId": "bEQsXMF0x-U",
+  "sourceUrl": "https://www.youtube.com/watch?v=bEQsXMF0x-U",
+  "title": "[12시에 만나요] 급등락 반복하는 증시 속 지쳐가는 국민투자자 마음...ㅣ오린아 LS증권 연구원ㅣ2026년 7월 16일 목요일",
+  "generatedAt": "2026-07-23T23:56:35+09:00",
+  "summaryUpdatedAt": "2026-07-23T23:56:35+09:00",
+  "summaryStyle": "insight-report",
+  "reportVersion": "insight-v3.0.0",
+  "editor": {
+    "name": "hyveo",
+    "url": "./index.html"
+  },
+  "insightSummary": "유가 하락이 6월 CPI를 낮추며 금리 인상 우려를 덜었고 외국인·기관 매수와 함께 국내 증시가 급반등했지만, 사이드카가 반복되는 시장은 아직 신뢰와 가격 발견이 완전히 복원된 상태가 아니다. 레버리지 제도의 속도, IBM이 보여준 AI 전환의 실적 격차, 소비·유통 기업의 현금흐름을 함께 확인해야 반등의 질을 판단할 수 있다.",
+  "headline": "물가 안도는 반등의 문을 열었지만 실적 전환과 제도 신뢰가 회복의 지속성을 가른다",
+  "keyBullets": [
+    "코스피는 7%대, 코스닥은 강세를 보였고 외국인·기관의 현·선물 매수가 유입됐지만 매수 사이드카는 시장 변동성이 여전히 비정상적으로 크다는 신호다.",
+    "6월 CPI 둔화는 유가 하락 영향이 컸고 금리 인상 확률을 낮췄지만 한 번의 지표만으로 물가 안정을 확정할 수는 없다.",
+    "레버리지 상품 논의에서 가장 중요한 것은 완벽한 대책보다 신속한 도입과 보완을 통해 시장 신뢰를 회복하는 속도라는 주장이다.",
+    "IBM 실적은 AI 이름을 붙이는 것과 기존 사업을 실제 성장·수익으로 전환하는 것이 다르다는 점을 보여줬다.",
+    "오린아 연구원 대담은 소비·유통 기업을 볼 때 매출 성장뿐 아니라 비용, 재고, 현금흐름과 구조적 경쟁력을 함께 볼 것을 제시했다."
+  ],
+  "readerTakeaways": [
+    "CPI 둔화의 원인이 일시적 유가 효과인지 확인한다.",
+    "사이드카 반등을 정상 시장 회복과 동일시하지 않는다.",
+    "AI 기업은 투자 발표보다 실적 전환 속도를 본다.",
+    "정책은 방향뿐 아니라 실행 속도와 신뢰 회복 효과를 본다."
+  ],
+  "watchPoints": [
+    "미국 물가와 고용의 동시 둔화 여부",
+    "외국인·기관 매수와 환율 안정의 지속",
+    "레버리지 제도 도입 및 보호장치의 속도",
+    "ASML·TSMC 등 후속 실적과 AI 수요 전망"
+  ],
+  "emphasisNotes": [
+    {
+      "text": "레버리지 제도 논의에서 가장 중요한 차별점은 신속한 실행이다.",
+      "whyItMatters": "보완책은 뒤따를 수 있지만 지연 자체가 정책 신뢰와 시장 경쟁력을 약화시킬 수 있기 때문이다.",
+      "source": {
+        "chapter": "레버리지 제도",
+        "timestamp": "29:46"
+      }
+    },
+    {
+      "text": "AI라는 이름보다 기존 사업을 실제 실적으로 바꾸는 능력이 중요하다.",
+      "whyItMatters": "IBM의 부진은 AI 투자만으로 모든 기업의 수익성이 자동 개선되지 않음을 보여줬기 때문이다.",
+      "source": {
+        "chapter": "IBM 실적의 교훈",
+        "timestamp": "34:14"
+      }
+    }
+  ],
+  "strategyFrame": {
+    "stance": "물가 안도와 수급 반전을 확인하되 실적·정책 실행·시장 신뢰가 뒤따르는지 단계적으로 검증한다.",
+    "scenarioLens": [
+      "물가·고용 둔화 시 금리 부담 완화",
+      "후속 반도체 실적 호조 시 AI 회복 강화",
+      "정책 지연 시 신뢰 회복 지연"
+    ],
+    "riskChecklist": [
+      "유가 효과의 일시성",
+      "사이드카 장세의 재변동",
+      "AI 투자와 수익의 괴리",
+      "정책 실행 지연"
+    ],
+    "actionQuestions": [
+      "반등 근거가 매크로 한 지표에 치우쳤나?",
+      "기업의 AI 투자가 매출과 이익으로 연결되는가?",
+      "정책 실행을 확인할 일정은 무엇인가?"
+    ]
+  },
+  "visualHighlights": [
+    {
+      "id": "money-market",
+      "timestamp": "08:25",
+      "timeSec": 505,
+      "title": "정오의 Money 뉴스 시장 보드",
+      "caption": "코스피·코스닥 급등과 매수 사이드카, 수급을 보여주는 장중 화면",
+      "selectionBasis": "Money 뉴스 헤드라인 보드와 한 쌍이며 주식장 정리의 직접 화면 근거라 선정.",
+      "whyImportant": "급반등의 폭과 수급을 동시에 확인할 수 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=bEQsXMF0x-U&t=505s",
+      "imagePath": "captures/20260716_bEQsXMF0x-U/01.jpg"
+    },
+    {
+      "id": "money-headlines",
+      "timestamp": "09:10",
+      "timeSec": 550,
+      "title": "정오의 Money 뉴스 헤드라인 보드",
+      "caption": "CPI, 레버리지, IBM 실적과 사이드카 뉴스를 정리한 화면",
+      "selectionBasis": "시장 보드와 당일 뉴스 목록을 Money 뉴스 두 카드로 제공하기 위해 선정.",
+      "whyImportant": "반등의 매크로·정책·실적 원인을 빠르게 파악할 수 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=bEQsXMF0x-U&t=550s",
+      "imagePath": "captures/20260716_bEQsXMF0x-U/02.jpg"
+    },
+    {
+      "id": "cpi-table",
+      "timestamp": "14:49",
+      "timeSec": 889,
+      "title": "미국 CPI 주요 항목 표",
+      "caption": "에너지 가격 하락이 물가 둔화를 이끈 구성을 보여주는 표",
+      "selectionBasis": "앞뒤 문맥상 금리 안도의 원인을 직접 확인할 수 있는 시각 자료라 선정.",
+      "whyImportant": "헤드라인 물가와 그 원인을 구분하게 한다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=bEQsXMF0x-U&t=889s",
+      "imagePath": "captures/20260716_bEQsXMF0x-U/03.jpg"
+    },
+    {
+      "id": "ibm-results",
+      "timestamp": "32:10",
+      "timeSec": 1930,
+      "title": "IBM 실적과 AI 전환 자료",
+      "caption": "AI 투자에도 부진했던 IBM 실적을 정리한 화면",
+      "selectionBasis": "명시적 중요 표현과 보고서의 실적 전환 논리를 모두 뒷받침해 선정.",
+      "whyImportant": "AI 테마와 실제 수익 창출의 차이를 확인할 수 있다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=bEQsXMF0x-U&t=1930s",
+      "imagePath": "captures/20260716_bEQsXMF0x-U/04.jpg"
+    },
+    {
+      "id": "guest-chart",
+      "timestamp": "40:52",
+      "timeSec": 2452,
+      "title": "유통·소비 산업 분석 차트",
+      "caption": "오린아 연구원이 소비 기업의 구조 변화를 설명한 차트",
+      "selectionBasis": "게스트 분석의 핵심 구조를 시각적으로 확인할 수 있어 선정.",
+      "whyImportant": "매출 외 비용·현금흐름·경쟁력을 함께 보는 관점을 제공한다.",
+      "sourceUrl": "https://www.youtube.com/watch?v=bEQsXMF0x-U&t=2452s",
+      "imagePath": "captures/20260716_bEQsXMF0x-U/05.jpg"
+    }
+  ],
+  "toc": [
+    {
+      "id": "market",
+      "title": "주식장 정리 브리핑"
+    },
+    {
+      "id": "money",
+      "title": "정오의 Money 뉴스"
+    },
+    {
+      "id": "macro",
+      "title": "물가와 금리"
+    },
+    {
+      "id": "execution",
+      "title": "정책과 실적 전환"
+    },
+    {
+      "id": "glossary",
+      "title": "오늘의 용어"
+    }
+  ],
+  "sections": [
+    {
+      "id": "market",
+      "title": "주식장 정리 브리핑: 급반등에도 변동성 정상화가 필요하다",
+      "bullets": [
+        {
+          "text": "코스피는 7%대 강세, 코스닥도 급등하며 양 시장에 매수 사이드카가 걸렸다."
+        },
+        {
+          "text": "외국인은 코스피 현·선물을 사고 기관도 양 시장에서 매수했다."
+        },
+        {
+          "text": "개인은 차익·손절 매물을 내놓아 수급 주체가 엇갈렸다."
+        },
+        {
+          "text": "반등 폭보다 변동성이 줄고 가격 발견이 정상화되는지를 봐야 한다."
+        }
+      ]
+    },
+    {
+      "id": "money",
+      "title": "정오의 Money 뉴스: 물가·정책·실적·사이드카",
+      "bullets": [
+        {
+          "text": "6월 CPI는 유가 하락 영향으로 예상보다 낮아 금리 부담을 덜었다."
+        },
+        {
+          "text": "연준 의장 발언은 물가 경계와 독립성을 재확인했다."
+        },
+        {
+          "text": "대통령은 레버리지 논란에 신속한 조치를 주문했다."
+        },
+        {
+          "text": "IBM 부진은 AI 전환의 실적 격차를 드러냈다."
+        },
+        {
+          "text": "코스피·코스닥 매수 사이드카는 급반등과 높은 변동성을 동시에 보여줬다."
+        }
+      ]
+    },
+    {
+      "id": "macro",
+      "title": "유가가 낮춘 물가, 고용이 다음 금리 변수가 된다",
+      "bullets": [
+        {
+          "text": "에너지 하락이 CPI 둔화의 큰 부분을 차지했다."
+        },
+        {
+          "text": "고용까지 약해지면 금리 인상 우려가 더 낮아질 수 있다."
+        },
+        {
+          "text": "한 번의 지표만으로 물가 안정이 끝났다고 보기는 어렵다."
+        }
+      ]
+    },
+    {
+      "id": "execution",
+      "title": "정책과 AI는 선언보다 실행과 실적이 중요하다",
+      "bullets": [
+        {
+          "text": "레버리지 제도는 신속한 도입과 보완의 병행이 신뢰 회복의 관건이다."
+        },
+        {
+          "text": "IBM은 AI 투자에도 기존 사업의 실적 전환이 늦으면 시장이 즉시 평가를 낮춘다는 사례다."
+        },
+        {
+          "text": "소비·유통 기업은 매출뿐 아니라 비용·재고·현금흐름으로 경쟁력을 확인해야 한다."
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "title": "오늘의 용어/알아야 할 지식: CPI, 매수 사이드카, 레버리지",
+      "bullets": [
+        {
+          "text": "CPI: 소비자가 사는 상품과 서비스 가격의 변화를 보여주는 물가 지표다."
+        },
+        {
+          "text": "매수 사이드카: 선물 급등 때 프로그램 매수를 잠시 멈추는 장치다."
+        },
+        {
+          "text": "레버리지: 빌린 힘이나 파생 구조로 기초자산 움직임보다 손익 폭을 키우는 방식이다."
+        }
+      ]
+    }
+  ],
+  "publishedAt": "2026-07-16T02:47:49Z"
+}
