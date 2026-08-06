@@ -31,10 +31,12 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
-      "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-08-06T11:55:21.864413+09:00"
+      "hasTranscript": "Y",
+      "hasSummary": "Y",
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-08-06T11:55:21.864413+09:00",
+      "liveEndedAt": "2026-08-06T14:57:20.479209+09:00",
+      "summaryUpdatedAt": "2026-08-06T15:13:47+09:00"
     },
     {
       "videoId": "ohY9FX5CYwQ",
@@ -66,10 +68,11 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
+      "hasTranscript": "Y",
       "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-08-05T11:55:19.976347+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-08-05T11:55:19.976347+09:00",
+      "liveEndedAt": "2026-08-06T14:55:54.958538+09:00"
     },
     {
       "videoId": "30M24OO77RA",
@@ -101,10 +104,12 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
-      "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-08-04T11:55:19.043673+09:00"
+      "hasTranscript": "Y",
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-08-06T15:00:48+09:00",
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-08-04T11:55:19.043673+09:00",
+      "liveEndedAt": "2026-08-06T14:52:36.958207+09:00"
     },
     {
       "videoId": "EQxj0mAetzg",
