@@ -32,10 +32,11 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-08-21T11:55:19.622908+09:00",
-      "liveEndedAt": "2026-08-21T14:16:30.207003+09:00"
+      "liveEndedAt": "2026-08-21T14:16:30.207003+09:00",
+      "summaryUpdatedAt": "2026-08-21T14:54:55+09:00"
     },
     {
       "videoId": "OZ98EnTsLQA",
