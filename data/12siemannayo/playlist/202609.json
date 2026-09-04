@@ -147,10 +147,11 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-09-01T11:55:21.825198+09:00",
-      "liveEndedAt": "2026-09-04T14:56:04.310143+09:00"
+      "liveEndedAt": "2026-09-04T14:56:04.310143+09:00",
+      "summaryUpdatedAt": "2026-09-04T17:39:24+09:00"
     }
   ]
 }
