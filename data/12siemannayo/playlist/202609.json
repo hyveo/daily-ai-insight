@@ -72,10 +72,12 @@
         "#한병화"
       ],
       "chapters": [],
-      "hasTranscript": "N",
-      "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-09-03T11:55:21.273735+09:00"
+      "hasTranscript": "Y",
+      "hasSummary": "Y",
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-09-03T11:55:21.273735+09:00",
+      "liveEndedAt": "2026-09-05T03:12:55.542659+09:00",
+      "summaryUpdatedAt": "2026-09-05T03:18:22+09:00"
     },
     {
       "videoId": "9behvdQTa4E",
