@@ -32,10 +32,11 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-07-31T11:55:27.424919+09:00",
-      "liveEndedAt": "2026-07-31T14:00:12.842492+09:00"
+      "liveEndedAt": "2026-07-31T14:00:12.842492+09:00",
+      "summaryUpdatedAt": "2026-09-05T02:49:42+09:00"
     },
     {
       "videoId": "q1-vdcs7UVo",
