@@ -20,11 +20,11 @@
 
 ## 배포 정보
 
-- 버전: `deploy-121`
-- 마지막 배포일: `2026-11-05 15:16:06 KST`
+- 버전: `deploy-122`
+- 마지막 배포일: `2026-11-05 16:15:57 KST`
 - 서비스 URL: https://hyveo.github.io/youtube_daily_archive_pages
-- 소스 커밋: `99bc493`
-- Actions run: https://github.com/heaun/youtube_daily_archive/actions/runs/41979248871
+- 소스 커밋: `033992f`
+- Actions run: https://github.com/heaun/youtube_daily_archive/actions/runs/41985972094
 
 ## 현재 공개 데이터
 
@@ -157,11 +157,11 @@ Insight reports are published as a static site via GitHub Pages. No login. No pa
 
 ## Deployment
 
-- Version: `deploy-121`
-- Last deployed: `2026-11-05 15:16:06 KST`
+- Version: `deploy-122`
+- Last deployed: `2026-11-05 16:15:57 KST`
 - Site: https://hyveo.github.io/youtube_daily_archive_pages
-- Source commit: `99bc493`
-- Actions run: https://github.com/heaun/youtube_daily_archive/actions/runs/41979248871
+- Source commit: `033992f`
+- Actions run: https://github.com/heaun/youtube_daily_archive/actions/runs/41985972094
 
 ## Current Public Data
 
