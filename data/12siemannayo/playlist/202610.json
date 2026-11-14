@@ -705,10 +705,11 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-10-05T11:55:18.607263+09:00",
-      "liveEndedAt": "2026-10-05T14:33:41.538458+09:00"
+      "liveEndedAt": "2026-10-05T14:33:41.538458+09:00",
+      "summaryUpdatedAt": "2026-11-14T11:09:00+09:00"
     },
     {
       "videoId": "Be2lNEVv2Uk",
