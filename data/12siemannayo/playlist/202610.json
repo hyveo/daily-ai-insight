@@ -399,10 +399,11 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
+      "hasTranscript": "Y",
       "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-10-19T11:55:19.937535+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-10-19T11:55:19.937535+09:00",
+      "liveEndedAt": "2026-11-24T12:15:05.184630+09:00"
     },
     {
       "videoId": "QNGdpE4iYcc",

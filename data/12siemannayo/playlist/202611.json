@@ -35,10 +35,11 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
+      "hasTranscript": "Y",
       "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-11-24T11:55:22.755858+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-11-24T11:55:22.755858+09:00",
+      "liveEndedAt": "2026-11-24T14:00:11.240909+09:00"
     },
     {
       "videoId": "5Ith-DjXQx8",
@@ -74,10 +75,11 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
+      "hasTranscript": "Y",
       "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-11-23T11:55:22.083513+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-11-23T11:55:22.083513+09:00",
+      "liveEndedAt": "2026-11-24T12:13:41.430736+09:00"
     },
     {
       "videoId": "XJ_0dLcHEYY",
@@ -113,10 +115,11 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
+      "hasTranscript": "Y",
       "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-11-19T11:55:21.096329+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-11-19T11:55:21.096329+09:00",
+      "liveEndedAt": "2026-11-24T12:13:12.340203+09:00"
     },
     {
       "videoId": "sF8luz_4_v0",
@@ -152,10 +155,11 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
+      "hasTranscript": "Y",
       "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-11-18T11:55:21.112602+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-11-18T11:55:21.112602+09:00",
+      "liveEndedAt": "2026-11-24T12:12:42.190875+09:00"
     },
     {
       "videoId": "p-FtGBvFshs",
@@ -191,10 +195,11 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
+      "hasTranscript": "Y",
       "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-11-17T11:55:22.826373+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-11-17T11:55:22.826373+09:00",
+      "liveEndedAt": "2026-11-24T12:12:13.528892+09:00"
     },
     {
       "videoId": "LxjPmWTmBJo",
@@ -230,10 +235,11 @@
         "#코스피"
       ],
       "chapters": [],
-      "hasTranscript": "N",
+      "hasTranscript": "Y",
       "hasSummary": "N",
-      "liveStatus": "live",
-      "liveCheckedAt": "2026-11-16T11:55:21.819977+09:00"
+      "liveStatus": "ended",
+      "liveCheckedAt": "2026-11-16T11:55:21.819977+09:00",
+      "liveEndedAt": "2026-11-24T12:11:45.156358+09:00"
     },
     {
       "videoId": "PUjuZJBBl0A",
