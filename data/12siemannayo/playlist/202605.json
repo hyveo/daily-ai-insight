@@ -1021,7 +1021,8 @@
         }
       ],
       "hasTranscript": "Y",
-      "hasSummary": "N"
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-11-24T16:15:31+09:00"
     },
     {
       "videoId": "__EheacQlks",
