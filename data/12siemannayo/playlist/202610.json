@@ -235,10 +235,11 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-10-23T11:55:19.745461+09:00",
-      "liveEndedAt": "2026-10-23T14:00:14.158180+09:00"
+      "liveEndedAt": "2026-10-23T14:00:14.158180+09:00",
+      "summaryUpdatedAt": "2026-11-24T14:53:05+09:00"
     },
     {
       "videoId": "DaaCtxucoHc",
@@ -400,10 +401,11 @@
       ],
       "chapters": [],
       "hasTranscript": "Y",
-      "hasSummary": "N",
+      "hasSummary": "Y",
       "liveStatus": "ended",
       "liveCheckedAt": "2026-10-19T11:55:19.937535+09:00",
-      "liveEndedAt": "2026-11-24T12:15:05.184630+09:00"
+      "liveEndedAt": "2026-11-24T12:15:05.184630+09:00",
+      "summaryUpdatedAt": "2026-11-24T14:59:02+09:00"
     },
     {
       "videoId": "QNGdpE4iYcc",
