@@ -843,7 +843,8 @@
         }
       ],
       "hasTranscript": "Y",
-      "hasSummary": "N"
+      "hasSummary": "Y",
+      "summaryUpdatedAt": "2026-11-25T16:52:43+09:00"
     },
     {
       "videoId": "e-0BJGun_4s",
